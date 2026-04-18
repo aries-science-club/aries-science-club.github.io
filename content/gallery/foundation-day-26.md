@@ -6,4 +6,7 @@ draft: false
 
 Welcome to the gallery for the AcSIR Foundation Day. 
 
-{{< gallery match="images/foundationday/*" >}}
+![Foundation Day 1](/images/foundationday/f_1.jpg)
+![Foundation Day 2](/images/foundationday/f_2.jpg)
+![Foundation Day 3](/images/foundationday/f_3.jpg)
+![Foundation Day 4](/images/foundationday/f_4.jpg)
