@@ -7,7 +7,7 @@ summary: "Special presentations on astrophysics software pipelines and hardware.
 
 ### About the Session
 
-*13 May, 2026*
+*11 May, 2026*
 
 ---
 
