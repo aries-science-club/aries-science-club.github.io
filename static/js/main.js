@@ -34,6 +34,7 @@ document.addEventListener("DOMContentLoaded", function() {
         new Swiper(".membersSwiper", {
             slidesPerView: "auto",
             spaceBetween: 20,
+            centerInsufficientSlides: true,
             grabCursor: true,
             speed: 500,
             mousewheel: { forceToAxis: true },

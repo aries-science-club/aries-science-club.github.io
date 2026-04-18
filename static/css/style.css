@@ -408,7 +408,3 @@ h2 {
         padding: 25px;
     }
 }
-/* Center team cards when there are not enough to fill the screen */
-.membersSwiper .swiper-wrapper {
-    justify-content: center;
-}
