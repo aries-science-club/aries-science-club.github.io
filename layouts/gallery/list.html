@@ -24,7 +24,7 @@
 
         <div class="events-grid" style="margin-top: 40px; text-align: left;">
             {{ range .Pages }}
-            <a href="{{ .Permalink }}" style="text-decoration: none; color: inherit;">
+            <a href="{{ .RelPermalink }}" style="text-decoration: none; color: inherit;">
                 <div class="event-card" data-aos="fade-up">
                     <img src="{{ .Params.cover_image }}" alt="{{ .Title }}" />
                     <h3>{{ .Title }}</h3>
