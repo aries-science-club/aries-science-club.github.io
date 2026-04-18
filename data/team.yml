@@ -1,27 +1,27 @@
 - name: "Yash Sharma"
-  role: "JRF / PhD Student"
+  role: "Member"
   image: "/images/team/1.jpg"
 
 - name: "Subhadip"
-  role: "JRF / PhD Student"
+  role: "Member"
   image: "/images/team/2.jpg"
 
 - name: "Pankaj"
-  role: "JRF / PhD Student"
+  role: "Member"
   image: "/images/team/3.jpg"
 
 - name: "Anshika"
-  role: "SRF / PhD Student"
+  role: "Vice-President"
   image: "/images/team/4.jPG"
 
 - name: "Mukesh"
-  role: "SRF / PhD Student"
+  role: "Accountant"
   image: "/images/team/5.jpg"
 
 - name: "Preeti"
-  role: "JRF / PhD Student"
+  role: "Member"
   image: "/images/team/6.jpg"
 
 - name: "Rishi"
-  role: "SRF / PhD Student"
+  role: "President"
   image: "/images/team/7.jpg"
