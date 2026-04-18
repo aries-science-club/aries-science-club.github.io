@@ -1,5 +1,5 @@
 ---
-title: "AcSIR Foundation Day '26"
+title: "World Health Day '26"
 date: 2026-03-15
 draft: false
 cover_image: "/images/foundationday/f_1.jpg"
@@ -11,9 +11,6 @@ video_url: "https://www.youtube.com/embed/lILgstYoNV4"  # ← add this
 *07 April, 2026*
 
 ---
-
-# World Health Day
-
 **World Health Day** is celebrated every year on **April 7** to mark the establishment of the **World Health Organization (WHO)** in 1948. This day aims to spread awareness about important global health issues and encourage people to pay attention to their **physical and mental well-being**. A healthy life depends not only on proper medication but also on **daily habits and routines**.
 
 ### Annual Theme

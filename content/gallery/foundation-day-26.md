@@ -16,9 +16,6 @@ images:
 *06 April, 2026*
 
 ---
-
-# AcSIR Foundation Day
-
 **AcSIR Foundation Day** is marked on **6th April**, signifying the establishment of the **Academy of Scientific and Innovative Research** as a premier institution for advanced scientific research and education in India. The Foundation Day of **AcSIR** was celebrated by the **Aryabhatta Research Institute of Observational Sciences (ARIES)**, an academic centre of **AcSIR**, with great enthusiasm and academic spirit, commemorating the occasion.
 
 **AcSIR** arranged an influential lecture by **Prof. Chetan Singh Solanki (IIT Bombay)** on *"Is Ever-Growing Consumption on a Finite Earth Possible?"*. Many researchers and scientists from **ARIES** attended the thought-provoking lecture conducted by **AcSIR**.
