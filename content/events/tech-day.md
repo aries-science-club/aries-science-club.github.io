@@ -6,13 +6,35 @@ summary: "Special presentations on astrophysics software pipelines and hardware.
 ---
 
 ### About the Session
-Join us for an in-depth exploration of the software and hardware pipelines that drive modern astrophysics. This session is designed for researchers, PhD students, and astronomy enthusiasts who want to understand the technology behind the telescope.
 
-### What to Expect
-* **10:00 AM:** Introduction to HEASoft and XSPEC.
-* **11:30 AM:** Setting up automated photometry pipelines in Python.
-* **01:00 PM:** Lunch & Networking.
-* **02:00 PM:** Hands-on hardware demonstration at the Manora Peak observation deck.
+*13 May, 2026*
+
+---
+
+# Engineering and Science Symposium
+
+Join us for an engaging session hosted by the **ARIES Science Club**, focusing on the intersection of advanced engineering and observational astronomy. This event will delve into the technical backbone of our observatories and showcase the research work of our scholars.
+
+### Event Schedule
+
+- **02:30 PM:** **Technical Talks** – Insights from **ARIES Engineers** on *Electronics and Optics* in the context of telescope instrumentation and control systems.
+- **Poster Presentation:** A display of ongoing research and innovative projects.
+- **Science Quiz:** A competitive round testing your knowledge of astrophysics and engineering.
+- **Flash Talks:** Exclusive short presentations delivered by the **winners of the Poster Presentation**.
+- **04:00 PM:** **High Tea & Snacks** – A networking session for all participants.
+
+---
+
+### Prizes & Awards
+
+We are excited to announce cash prizes for the top performers in both the **Poster Presentation** and the **Science Quiz**:
+
+PositionPrize Amount**1st Place****₹1,000****2nd Place****₹500****3rd Place****₹250**---
 
 **Location:** ARIES Main Auditorium
-**Prerequisites:** Bring your laptop if you wish to follow along with the coding demonstrations!
+
+**Prerequisites:** All students and researchers are encouraged to participate. *Winners of the poster session should be prepared to deliver a brief flash talk following the announcement.*
+
+> *“Innovation in science is driven by the precision of engineering.”*
+>
+>
