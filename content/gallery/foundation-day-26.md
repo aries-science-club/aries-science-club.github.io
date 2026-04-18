@@ -1,12 +1,16 @@
 ---
 title: "AcSIR Foundation Day '26"
 date: 2026-03-15
-draft: false
+cover_image: "/images/foundationday/f_1.jpg"
+summary: "The annual celebration of the AcSIR foundation featuring guest lectures and networking."
+images: 
+  - "/images/foundationday/f_1.jpg"
+  - "/images/foundationday/f_2.jpg"
+  - "/images/foundationday/f_3.jpg"
+  - "/images/foundationday/f_4.jpg"
 ---
 
-Welcome to the gallery for the AcSIR Foundation Day. 
+### About the Event
+The AcSIR Foundation Day '26 was a massive success. We hosted several prominent researchers who shared their insights into high-energy astrophysics and the future of observational sciences at Manora Peak. 
 
-![Foundation Day 1](/images/foundationday/f_1.jpg)
-![Foundation Day 2](/images/foundationday/f_2.jpg)
-![Foundation Day 3](/images/foundationday/f_3.jpg)
-![Foundation Day 4](/images/foundationday/f_4.jpg)
+The morning started with a software pipeline workshop, followed by a detailed discussion on the latest blazar luminosity data.
