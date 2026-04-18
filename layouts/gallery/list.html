@@ -24,12 +24,16 @@
 
         <div class="events-grid" style="margin-top: 40px; text-align: left;">
             {{ range .Pages }}
-            <a href="{{ .RelPermalink }}" style="text-decoration: none; color: inherit;">
-                <div class="event-card" data-aos="fade-up">
+            <a href="{{ .RelPermalink }}" style="text-decoration: none; color: inherit; display: flex;">
+                <div class="event-card" data-aos="fade-up" style="display: flex; flex-direction: column; height: 100%; width: 100%;">
                     <img src="{{ .Params.cover_image }}" alt="{{ .Title }}" />
                     <h3>{{ .Title }}</h3>
-                    <p>{{ .Params.summary }}</p>
-                    <button class="btn" style="margin-top: 15px; font-size: 0.8rem;">View Gallery ➜</button>
+                    
+                    <p style="flex-grow: 1;">{{ .Params.summary }}</p>
+                    
+                    <div style="margin-top: auto; text-align: center;">
+                        <button class="btn" style="margin-top: 15px; font-size: 0.8rem;">VIEW GALLERY ➔</button>
+                    </div>
                 </div>
             </a>
             {{ end }}
