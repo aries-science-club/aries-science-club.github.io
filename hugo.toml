@@ -1,0 +1,4 @@
+baseURL = "https://aries-science-club.github.io/"
+locale = 'en-us'
+title = 'My New Hugo Project'
+buildFuture = true

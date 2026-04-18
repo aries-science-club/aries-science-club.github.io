@@ -1,0 +1,199 @@
+<!doctype html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8" />
+        <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+        <title>ARIES & AcSIR Science Club</title>
+
+        <link
+            rel="stylesheet"
+            href="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.css"
+        />
+
+        <link
+            href="https://unpkg.com/aos@2.3.1/dist/aos.css"
+            rel="stylesheet"
+        />
+
+        <link rel="stylesheet" href="/css/style.css" />
+    </head>
+
+    <body>
+        {{ partial "navbar.html" . }}
+        <section class="hero" data-aos="fade-in" data-aos-duration="1500">
+            <h3 style="color: var(--primary); letter-spacing: 2px">
+                EXPLORE THE UNIVERSE
+            </h3>
+            <h1>ARIES Science Club</h1>
+            <p>A joint initiative by ARIES and AcSIR.</p>
+            <button class="btn">View Schedule</button>
+        </section>
+
+        <section class="upcoming" id="events">
+            <div style="text-align: center" data-aos="fade-up">
+                <h2>Upcoming Events</h2>
+                <p class="section-subtitle">
+                    Join us for our next academic and public outreach sessions.
+                </p>
+            </div>
+
+            <div class="events-grid">
+                {{ range where site.RegularPages "Section" "events" }}
+                <div class="event-card" data-aos="fade-up" data-aos-delay="200">
+                    <img src="{{ .Params.image }}" alt="{{ .Title }}" />
+                    <h3>{{ .Title }}</h3>
+                    <p>{{ .Params.summary }}</p>
+                    
+                    <a href="{{ .Permalink }}" class="btn" style="margin-top: 15px; font-size: 0.8rem; display: inline-block; text-decoration: none;">
+                        Learn More
+                    </a>
+                </div>
+                {{ end }}
+            </div>
+        </section>
+
+        <section class="past-events">
+            <div
+                data-aos="fade-down"
+                style="text-align: center; margin-bottom: 40px"
+            >
+                <h2>Past Highlights</h2>
+                <p class="section-subtitle">
+                    Swipe through photos from our recent activities.
+                </p>
+            </div>
+
+            {{ range site.Data.past }}
+            <div class="gallery-panel" data-aos="fade-up" data-aos-delay="100">
+                <div class="gallery-header">
+                    <h3>{{ .title }}</h3>
+                    <p>{{ .subtitle | safeHTML }}</p>
+                </div>
+
+                {{ if eq .type "gallery" }}
+                <div class="swiper gallerySwiper">
+                    <div class="swiper-wrapper">
+                        {{ range .images }}
+                        <div class="swiper-slide">
+                            <img src="{{ . }}" alt="Event Photo" />
+                        </div>
+                        {{ end }}
+                    </div>
+                </div>
+                {{ end }} {{ if eq .type "video" }}
+                <div
+                    style="height: 250px; border-radius: 12px; overflow: hidden"
+                >
+                    <iframe
+                        width="100%"
+                        height="100%"
+                        src="{{ .video_url }}"
+                        title="{{ .title }}"
+                        frameborder="0"
+                        allow="
+                            accelerometer;
+                            autoplay;
+                            clipboard-write;
+                            encrypted-media;
+                            gyroscope;
+                            picture-in-picture;
+                        "
+                        allowfullscreen
+                        style="border-radius: 12px"
+                    ></iframe>
+                </div>
+                {{ end }}
+            </div>
+            {{ end }}
+
+            <div
+                data-aos="fade-up"
+                style="text-align: center; margin-top: 40px"
+            >
+                <a
+                    href="/gallery"
+                    class="btn"
+                    style="
+                        background: transparent;
+                        border: 2px solid var(--primary);
+                        padding: 15px 40px;
+                    "
+                >
+                    View Full Archive ➜
+                </a>
+            </div>
+        </section>
+
+        <section class="members" id="organizers">
+            <div data-aos="fade-down">
+                <h2>Meet the Team</h2>
+                <p class="section-subtitle">
+                    The research scholars organizing the events.
+                </p>
+            </div>
+
+            <div
+                class="swiper membersSwiper"
+                data-aos="fade-up"
+                data-aos-delay="100"
+            >
+                <div class="swiper-wrapper">
+                    {{ range site.Data.team }}
+                    <div class="swiper-slide">
+                        <div class="member-profile">
+                            <img
+                                src="{{ .image }}"
+                                class="avatar"
+                                alt="{{ .name }}"
+                            />
+                            <h4>{{ .name }}</h4>
+                            <p style="color: #94a3b8; font-size: 0.9rem">
+                                {{ .role }}
+                            </p>
+                        </div>
+                    </div>
+                    {{ end }}
+                </div>
+                <div class="swiper-pagination"></div>
+            </div>
+        </section>
+
+        <script src="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.js"></script>
+        <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
+
+        <script src="/js/main.js"></script>
+
+        <footer class="site-footer">
+            <div class="footer-content">
+                <div class="footer-section">
+                    <h3>Contact Information</h3>
+                    <p>
+                        Aryabhatta Research Institute of Observational Sciences
+                        (ARIES)
+                    </p>
+                    <p>Manora Peak, Nainital, Uttarakhand 263001</p>
+                    <br />
+                    <p>Email: club@aries.res.in</p>
+                </div>
+
+                <div class="footer-section">
+                    <h3>Affiliations & Socials</h3>
+                    <ul class="footer-links">
+                        <li>
+                            <a href="https://www.aries.res.in/" target="_blank"
+                                >ARIES Official Website ↗</a
+                            >
+                        </li>
+                        <li>
+                            <a href="https://acsir.res.in/" target="_blank"
+                                >AcSIR Official Website ↗</a
+                            >
+                        </li>
+                        <li><a href="#">LinkedIn</a></li>
+                        <li><a href="#">YouTube Channel</a></li>
+                    </ul>
+                </div>
+            </div>
+        </footer>
+    </body>
+</html>

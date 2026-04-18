@@ -1,0 +1,13 @@
+- title: "AcSIR Foundation Day '26"
+  subtitle: "The annual celebration of the AcSIR foundation."
+  type: "gallery"
+  images:
+    - "/images/foundationday/f_1.jpg"
+    - "/images/foundationday/f_2.jpg"
+    - "/images/foundationday/f_3.jpg"
+    - "/images/foundationday/f_4.jpg"
+
+- title: "World Health Day"
+  subtitle: "Raising awareness about global health issues.<br>Theme: Together for Health. Stand with Science."
+  type: "video"
+  video_url: "https://www.youtube.com/embed/lILgstYoNV4"

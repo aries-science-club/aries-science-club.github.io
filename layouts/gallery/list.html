@@ -1,0 +1,44 @@
+<!doctype html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>{{ .Title }} | ARIES Science Club</title>
+    <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet" />
+    <link rel="stylesheet" href="/css/style.css" />
+</head>
+<body>
+    
+    {{ partial "navbar.html" . }}
+
+    <div class="breadcrumbs">
+        <a href="/">Home</a> <span>/</span> 
+        <span style="color: #f8fafc;">Past Highlights</span>
+    </div>
+
+    <section style="padding-top: 20px; text-align: center;">
+        <div data-aos="fade-down">
+            <h2>{{ .Title }}</h2>
+            <p class="section-subtitle">{{ .Params.description }}</p>
+        </div>
+
+        <div class="events-grid" style="margin-top: 40px; text-align: left;">
+            {{ range .Pages }}
+            <a href="{{ .Permalink }}" style="text-decoration: none; color: inherit;">
+                <div class="event-card" data-aos="fade-up">
+                    <img src="{{ .Params.cover_image }}" alt="{{ .Title }}" />
+                    <h3>{{ .Title }}</h3>
+                    <p>{{ .Params.summary }}</p>
+                    <button class="btn" style="margin-top: 15px; font-size: 0.8rem;">View Gallery ➜</button>
+                </div>
+            </a>
+            {{ end }}
+        </div>
+    </section>
+
+    {{ partial "footer.html" . }}
+
+    <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
+    <script src="/js/main.js"></script>
+</body>
+</html>

@@ -1,0 +1,57 @@
+<!doctype html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>{{ .Title }} | ARIES Science Club</title>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.css" />
+    <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet" />
+    <link rel="stylesheet" href="/css/style.css" />
+</head>
+<body>
+    
+    {{ partial "navbar.html" . }}
+
+    <div class="breadcrumbs">
+        <a href="/">Home</a> <span>/</span> 
+        <a href="/gallery">Past Highlights</a> <span>/</span> 
+        <span style="color: #f8fafc;">{{ .Title }}</span>
+    </div>
+
+    <section style="padding-top: 20px;">
+        <div class="gallery-panel" style="max-width: 1200px; margin: 0 auto; display: flex; flex-wrap: wrap; gap: 40px;" data-aos="fade-up">
+            
+            <div style="flex: 1; min-width: 300px;">
+                <div class="gallery-header">
+                    <h2>{{ .Title }}</h2>
+                    <p>{{ .Date.Format "January 2, 2006" }}</p>
+                </div>
+                <div style="color: #cbd5e1; line-height: 1.8;">
+                    {{ .Content }} 
+                </div>
+            </div>
+
+            <div style="flex: 1; min-width: 300px; overflow: hidden;">
+                {{ if .Params.images }}
+                <div class="swiper gallerySwiper">
+                    <div class="swiper-wrapper">
+                        {{ range .Params.images }}
+                        <div class="swiper-slide">
+                            <img src="{{ . }}" alt="Event Photo" />
+                        </div>
+                        {{ end }}
+                    </div>
+                </div>
+                {{ end }}
+            </div>
+
+        </div>
+    </section>
+
+    {{ partial "footer.html" . }}
+
+    <script src="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.js"></script>
+    <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
+    <script src="/js/main.js"></script>
+</body>
+</html>
