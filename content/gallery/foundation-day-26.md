@@ -11,6 +11,26 @@ images:
 ---
 
 ### About the Event
-The AcSIR Foundation Day '26 was a massive success. We hosted several prominent researchers who shared their insights into high-energy astrophysics and the future of observational sciences at Manora Peak. 
+### ARIES Science Club
 
-The morning started with a software pipeline workshop, followed by a detailed discussion on the latest blazar luminosity data.
+*06 April, 2026*
+
+---
+
+# AcSIR Foundation Day
+
+**AcSIR Foundation Day** is marked on **6th April**, signifying the establishment of the **Academy of Scientific and Innovative Research** as a premier institution for advanced scientific research and education in India. The Foundation Day of **AcSIR** was celebrated by the **Aryabhatta Research Institute of Observational Sciences (ARIES)**, an academic centre of **AcSIR**, with great enthusiasm and academic spirit, commemorating the occasion.
+
+**AcSIR** arranged an influential lecture by **Prof. Chetan Singh Solanki (IIT Bombay)** on *"Is Ever-Growing Consumption on a Finite Earth Possible?"*. Many researchers and scientists from **ARIES** attended the thought-provoking lecture conducted by **AcSIR**.
+
+### Key Insights from the Lecture
+
+**Prof. Solanki** pointed out that conventional approaches—such as **tree plantation**, **policy making**, and **economic development** alone—are insufficient to address climate change. Instead, he emphasized that:
+
+- Reducing **individual consumption** is essential.
+- Adopting methods like **TUPEE** and **AMG** is vital for a sustainable long-term solution.
+
+The event highlighted the importance of moving beyond traditional methods and adopting **sustainable practices** at both **institutional and individual levels**, inspiring participants to contribute more responsibly towards addressing **climate change**.
+
+---
+
