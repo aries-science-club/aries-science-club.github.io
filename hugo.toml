@@ -1,5 +1,4 @@
 baseURL = "https://aries-science-club.github.io/"
 title = "ARIES Science Club"
 locale = 'en-us'
-title = 'My New Hugo Project'
 buildFuture = true
