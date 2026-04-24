@@ -1,0 +1,110 @@
+<!doctype html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>About Us | ARIES Science Club</title>
+    <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet" />
+    <link rel="stylesheet" href="/css/style.css" />
+    <style>
+        .team-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 30px;
+            margin-top: 40px;
+        }
+        .team-member-card {
+            background: rgba(255, 255, 255, 0.05);
+            border: 1px solid rgba(255, 255, 255, 0.1);
+            border-radius: 12px;
+            padding: 30px 20px;
+            text-align: center;
+            transition: transform 0.3s;
+        }
+        .team-member-card:hover { transform: translateY(-5px); }
+        .team-avatar {
+            width: 120px; height: 120px; border-radius: 50%;
+            object-fit: cover; margin-bottom: 15px; border: 3px solid var(--primary);
+        }
+        .social-links { margin-top: 15px; display: flex; justify-content: center; gap: 15px; }
+        .social-links a { color: #94a3b8; text-decoration: none; font-size: 0.9rem; }
+        .social-links a:hover { color: white; }
+    </style>
+</head>
+<body>
+
+    {{ partial "navbar.html" . }}
+
+    <div class="breadcrumbs">
+        <a href="/">Home</a> <span>/</span> <span style="color: #f8fafc;">About Us</span>
+    </div>
+
+    <section style="max-width: 1200px; margin: 0 auto; padding-top: 40px;">
+        
+        <div style="text-align: center; margin-bottom: 50px;" data-aos="fade-down">
+            <h1 style="font-size: 3rem; margin-bottom: 10px;">About Us</h1>
+            <p style="color: #94a3b8; font-size: 1.2rem;">{{ .Content }}</p>
+        </div>
+
+        <div data-aos="fade-up">
+            
+            {{ $groups := slice "Core Committee" "Web & Design Team" "Research Scholars" }}
+            
+            {{ range $groups }}
+            {{ if where site.Data.team "group" . }}
+            <h2 style="border-bottom: 2px solid #334155; padding-bottom: 10px; margin-top: 60px; color: #f8fafc;">{{ . }}</h2>
+            
+            <div class="detailed-team-list">
+                {{ range where site.Data.team "group" . }}
+                <div class="profile-card">
+                    
+                    <div class="profile-sidebar">
+                        <img src="{{ .image }}" alt="{{ .name }}" class="profile-avatar">
+                        <h3 style="margin-bottom: 5px;">{{ .name }}</h3>
+                        
+                        <div style="margin-bottom: 15px;">
+                            <span class="role-badge">{{ .role }}</span>
+                        </div>
+
+                        <div class="profile-socials">
+                            {{ if .email }}<a href="mailto:{{ .email }}" title="Email">✉️</a>{{ end }}
+                            {{ if .linkedin }}<a href="{{ .linkedin }}" target="_blank" title="LinkedIn">🔗</a>{{ end }}
+                            {{ if .instagram }}<a href="{{ .instagram }}" target="_blank" title="Instagram">📷</a>{{ end }}
+                        </div>
+                    </div>
+
+                    <div class="profile-content">
+                        <h4 style="color: #cbd5e1; margin-bottom: 10px; font-size: 1.1rem;">About</h4>
+                        <p style="color: #94a3b8; line-height: 1.7; margin-bottom: 20px;">
+                            {{ .detailed_bio | default "Research Scholar at ARIES." }}
+                        </p>
+                        
+                        {{ with .hobbies }}
+                        <h4 style="color: #cbd5e1; margin-bottom: 10px; font-size: 1.1rem;">Interests & Hobbies</h4>
+                        <div class="hobby-tags">
+                            {{ range . }}
+                                <span class="hobby-pill">{{ . }}</span>
+                            {{ end }}
+                        </div>
+                        {{ end }}
+                    </div>
+
+                </div>
+                {{ end }}
+            </div>
+            {{ end }}
+            {{ end }}
+        </div>
+
+        <h2 style="border-bottom: 2px solid #334155; padding-bottom: 10px; margin-top: 80px;" data-aos="fade-up">Posters & Resources</h2>
+        <div style="text-align: center; padding: 50px; background: rgba(255,255,255,0.02); border-radius: 12px; margin-top: 20px; color: #64748b;" data-aos="fade-up">
+            <p>Future posters, club rules, and resources will be displayed here.</p>
+        </div>
+
+    </section>
+
+    {{ partial "footer.html" . }}
+    <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
+    <script>AOS.init();</script>
+</body>
+</html>

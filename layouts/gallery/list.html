@@ -3,46 +3,214 @@
 <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>{{ .Title }} | ARIES Science Club</title>
+    <title>Photo Gallery | ARIES Science Club</title>
     <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet" />
     <link rel="stylesheet" href="/css/style.css" />
+    
+    <style>
+        /* --- GALLERY SPECIFIC STYLES --- */
+        .archive-search-container { text-align: center; margin-bottom: 40px; }
+        .search-input-wrapper { 
+            display: inline-flex; align-items: center; 
+            background: #1e293b; border: 2px solid #334155; 
+            border-radius: 30px; padding: 5px 20px; 
+            width: 100%; max-width: 600px; margin-bottom: 20px; 
+        }
+        .search-input-wrapper input { 
+            background: transparent; border: none; color: white; 
+            padding: 12px; width: 100%; outline: none; font-size: 1.1rem; 
+        }
+        
+        .tag-chips { display: flex; flex-wrap: wrap; justify-content: center; gap: 10px; margin-bottom: 40px; }
+        .chip { 
+            background: #1e293b; border: 1px solid #334155; color: #cbd5e1; 
+            padding: 8px 18px; border-radius: 20px; cursor: pointer; 
+            font-size: 0.9rem; transition: all 0.2s; 
+        }
+        .chip.active, .chip:hover { background: var(--primary, #e11d48); color: white; border-color: var(--primary, #e11d48); }
+
+        /* The Image Grid */
+        .photo-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
+            gap: 20px;
+        }
+
+        .photo-card {
+            position: relative;
+            border-radius: 12px;
+            overflow: hidden;
+            cursor: pointer;
+            aspect-ratio: 1 / 1; /* Makes every photo a perfect square in the grid! */
+        }
+
+        .photo-card img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover; /* Ensures images fill the square without stretching */
+            transition: transform 0.4s ease;
+        }
+
+        .photo-card:hover img {
+            transform: scale(1.1); /* Smooth zoom effect on hover */
+        }
+
+        /* The Dark Overlay with Title */
+        .photo-overlay {
+            position: absolute;
+            bottom: 0; left: 0; right: 0;
+            background: linear-gradient(to top, rgba(0,0,0,0.9), transparent);
+            padding: 30px 15px 15px 15px;
+            color: white;
+            opacity: 0;
+            transition: opacity 0.3s ease;
+            pointer-events: none;
+        }
+        .photo-card:hover .photo-overlay { opacity: 1; }
+        
+        .photo-title { font-weight: bold; font-size: 1.1rem; margin-bottom: 5px; }
+        .photo-meta { font-size: 0.8rem; color: #cbd5e1; text-transform: uppercase; letter-spacing: 1px; }
+
+        /* --- THE LIGHTBOX (For clicking images) --- */
+        #lightbox {
+            display: none; position: fixed; z-index: 9999;
+            top: 0; left: 0; width: 100%; height: 100%;
+            background: rgba(15, 23, 42, 0.95); /* ARIES dark background */
+            align-items: center; justify-content: center;
+            flex-direction: column;
+        }
+        #lightbox img { max-width: 90%; max-height: 80vh; border-radius: 8px; box-shadow: 0 10px 40px rgba(0,0,0,0.5); }
+        #lightbox-caption { color: white; margin-top: 15px; font-size: 1.2rem; }
+        #lightbox-close {
+            position: absolute; top: 30px; right: 40px;
+            color: white; font-size: 3rem; cursor: pointer; transition: color 0.2s;
+        }
+        #lightbox-close:hover { color: var(--primary, #e11d48); }
+    </style>
 </head>
 <body>
-    
+
     {{ partial "navbar.html" . }}
 
     <div class="breadcrumbs">
-        <a href="/">Home</a> <span>/</span> 
-        <span style="color: #f8fafc;">Past Highlights</span>
+        <a href="/">Home</a> <span>/</span> <span style="color: #f8fafc;">Gallery</span>
     </div>
 
-    <section style="padding-top: 20px; text-align: center;">
-        <div data-aos="fade-down">
-            <h2>{{ .Title }}</h2>
-            <p class="section-subtitle">{{ .Params.description }}</p>
+    <section style="max-width: 1400px; margin: 0 auto; padding-top: 40px;">
+        
+        <div style="text-align: center; margin-bottom: 40px;" data-aos="fade-down">
+            <h1 style="font-size: 3rem; margin-bottom: 10px;">Photo Gallery</h1>
+            <p style="color: #94a3b8; font-size: 1.2rem;">Relive the moments. Search by year, event, or name.</p>
         </div>
 
-        <div class="events-grid" style="margin-top: 40px; text-align: left;">
-            {{ range .Pages }}
-            <a href="{{ .RelPermalink }}" style="text-decoration: none; color: inherit; display: flex;">
-                <div class="event-card" data-aos="fade-up" style="display: flex; flex-direction: column; height: 100%; width: 100%;">
-                    <img src="{{ .Params.cover_image }}" alt="{{ .Title }}" />
-                    <h3>{{ .Title }}</h3>
-                    
-                    <p style="flex-grow: 1;">{{ .Params.summary }}</p>
-                    
-                    <div style="margin-top: auto; text-align: center;">
-                        <button class="btn" style="margin-top: 15px; font-size: 0.8rem;">VIEW GALLERY ➔</button>
-                    </div>
+        <div class="archive-search-container" data-aos="fade-down">
+            <div class="search-input-wrapper">
+                <span style="font-size: 1.2rem; color: #64748b;">🔍</span>
+                <input type="text" id="liveSearchInput" placeholder="Try '2026', 'Foundation', or 'Yash'...">
+            </div>
+
+            <div class="tag-chips">
+                <button class="chip active" data-tag="all">All Photos</button>
+                
+                {{ $allTags := slice }}
+                {{ range site.Data.gallery }}
+                    {{ with .tags }}{{ range . }}{{ $tag := . | lower }}{{ if not (in $allTags $tag) }}{{ $allTags = $allTags | append $tag }}{{ end }}{{ end }}{{ end }}
+                    {{ if not (in $allTags .year) }}{{ $allTags = $allTags | append .year }}{{ end }}
+                {{ end }}
+                
+                {{ range sort $allTags }}
+                    <button class="chip" data-tag="{{ . | lower }}">#{{ . | lower }}</button>
+                {{ end }}
+            </div>
+        </div>
+
+        <div class="photo-grid" id="photoGrid">
+            {{ range site.Data.gallery }}
+            
+            <div class="photo-card filter-item" 
+                 data-aos="zoom-in" 
+                 data-tags="{{ .year }} {{ .month | lower }} {{ with .tags }}{{ delimit . " " | lower }}{{ end }}"
+                 data-title="{{ .title | lower }}"
+                 onclick="openLightbox('{{ .image }}', '{{ .title }} ({{ .month }} {{ .year }})')">
+                
+                <img src="{{ .image }}" alt="{{ .title }}" loading="lazy" />
+                
+                <div class="photo-overlay">
+                    <div class="photo-title">{{ .title }}</div>
+                    <div class="photo-meta">{{ .month }} {{ .year }}</div>
                 </div>
-            </a>
+            </div>
             {{ end }}
         </div>
+
     </section>
+
+    <div id="lightbox" onclick="closeLightbox()">
+        <span id="lightbox-close">&times;</span>
+        <img id="lightbox-img" src="" alt="Full Screen Photo">
+        <div id="lightbox-caption"></div>
+    </div>
 
     {{ partial "footer.html" . }}
 
     <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
-    <script src="/js/main.js"></script>
+    <script>AOS.init();</script>
+
+    <script>
+        document.addEventListener("DOMContentLoaded", function() {
+            // --- SEARCH ENGINE ---
+            const searchInput = document.getElementById("liveSearchInput");
+            const photoCards = document.querySelectorAll(".filter-item");
+            const chips = document.querySelectorAll(".chip");
+            let activeTag = "all";
+
+            searchInput.addEventListener("input", runFilter);
+
+            chips.forEach(chip => {
+                chip.addEventListener("click", function() {
+                    chips.forEach(c => c.classList.remove("active"));
+                    this.classList.add("active");
+                    activeTag = this.getAttribute("data-tag");
+                    runFilter();
+                });
+            });
+
+            function runFilter() {
+                const searchTerms = searchInput.value.toLowerCase().trim().split(/\s+/);
+                
+                photoCards.forEach(card => {
+                    const cardTags = card.getAttribute("data-tags");
+                    const cardTitle = card.getAttribute("data-title");
+                    const combinedText = `${cardTitle} ${cardTags}`;
+
+                    const matchesSearch = searchTerms.every(term => combinedText.includes(term));
+                    const matchesTag = (activeTag === "all") || cardTags.includes(activeTag);
+
+                    if (matchesSearch && matchesTag) {
+                        card.style.display = "block";
+                    } else {
+                        card.style.display = "none";
+                    }
+                });
+            }
+        });
+
+        // --- LIGHTBOX ENGINE ---
+        const lightbox = document.getElementById('lightbox');
+        const lightboxImg = document.getElementById('lightbox-img');
+        const lightboxCaption = document.getElementById('lightbox-caption');
+
+        function openLightbox(imageSrc, captionText) {
+            lightboxImg.src = imageSrc;
+            lightboxCaption.innerText = captionText;
+            lightbox.style.display = 'flex';
+            document.body.style.overflow = 'hidden'; // Prevents scrolling behind the image
+        }
+
+        function closeLightbox() {
+            lightbox.style.display = 'none';
+            document.body.style.overflow = 'auto'; // Re-enables scrolling
+        }
+    </script>
 </body>
 </html>

@@ -1,0 +1,55 @@
+# --- Foundation Day 2026 ---
+- image: "/images/foundationday/f_1.jpg"
+  title: "Lighting the Lamp Ceremony"
+  year: "2026"
+  month: "March"
+  tags: ["foundation", "ceremony", "inauguration"]
+
+- image: "/images/foundationday/f_2.jpg"
+  title: "Guest Lecture Series"
+  year: "2026"
+  month: "March"
+  tags: ["foundation", "lecture", "guest"]
+
+- image: "/images/foundationday/f_3.jpg"
+  title: "Science Club Organizing Committee"
+  year: "2026"
+  month: "March"
+  tags: ["foundation", "team", "anshika", "rishi"]
+
+- image: "/images/foundationday/f_4.jpg"
+  title: "Audience Interaction"
+  year: "2026"
+  month: "March"
+  tags: ["foundation", "students", "qna"]
+
+- image: "/images/foundationday/f_5.jpg"
+  title: "Event Conclusion & Networking"
+  year: "2026"
+  month: "March"
+  tags: ["foundation", "networking"]
+
+# --- Team Headshots (April 2026) ---
+- image: "/images/team/1.jpg"
+  title: "Yash Sharma - Web Admin"
+  year: "2026"
+  month: "April"
+  tags: ["team", "headshots", "yash", "web"]
+
+- image: "/images/team/2.jpg"
+  title: "Subhadip - Research Scholar"
+  year: "2026"
+  month: "April"
+  tags: ["team", "headshots", "subhadip"]
+
+- image: "/images/team/7.jpg"
+  title: "Rishi - President"
+  year: "2026"
+  month: "April"
+  tags: ["team", "headshots", "rishi", "core"]
+
+- image: "/images/team/anshika.jpg"
+  title: "Anshika - Vice-President"
+  year: "2026"
+  month: "April"
+  tags: ["team", "headshots", "anshika", "core"]

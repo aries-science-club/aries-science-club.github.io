@@ -1,55 +1,56 @@
 <!doctype html>
 <html lang="en">
-    <head>
-        <meta charset="UTF-8" />
-        <meta name="viewport" content="width=device-width, initial-scale=1.0" />
 
-        <!-- ✏️ SITE TITLE: Change this to update the browser tab title -->
-        <title>ARIES & AcSIR Science Club</title>
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
 
-        <!-- 📦 External Libraries — do NOT edit these unless you know what you're doing -->
-        <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.css" />
-        <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet" />
+    <!-- ✏️ SITE TITLE: Change this to update the browser tab title -->
+    <title>ARIES & AcSIR Science Club</title>
 
-        <!-- 🎨 Your site's stylesheet — edit static/css/style.css to change colors, fonts, spacing -->
-        <link rel="stylesheet" href="/css/style.css" />
-    </head>
+    <!-- 📦 External Libraries — do NOT edit these unless you know what you're doing -->
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.css" />
+    <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet" />
 
-    <body>
+    <!-- 🎨 Your site's stylesheet — edit static/css/style.css to change colors, fonts, spacing -->
+    <link rel="stylesheet" href="/css/style.css" />
+</head>
 
-        <!-- ─────────────────────────────────────────────────────────────
+<body>
+
+    <!-- ─────────────────────────────────────────────────────────────
              🔝 NAVBAR
              The navbar is a "partial" — a reusable snippet.
              To edit it, open:  layouts/partials/navbar.html
         ───────────────────────────────────────────────────────────────── -->
-        {{ partial "navbar.html" . }}
+    {{ partial "navbar.html" . }}
 
 
-        <!-- ─────────────────────────────────────────────────────────────
+    <!-- ─────────────────────────────────────────────────────────────
              🌌 HERO SECTION
              The big banner at the top of the homepage.
              ✏️ You can freely edit the text here.
         ───────────────────────────────────────────────────────────────── -->
-        <section class="hero" data-aos="fade-in" data-aos-duration="1500">
+    <section class="hero" data-aos="fade-in" data-aos-duration="1500">
 
-            <!-- Small tagline above the main title -->
-            <h3 style="color: var(--primary); letter-spacing: 2px">
-                EXPLORE THE UNIVERSE   <!-- ✏️ Edit this tagline -->
-            </h3>
+        <!-- Small tagline above the main title -->
+        <h3 style="color: var(--primary); letter-spacing: 2px">
+            EXPLORE THE UNIVERSE <!-- ✏️ Edit this tagline -->
+        </h3>
 
-            <!-- Main heading -->
-            <h1>ARIES Science Club</h1>  <!-- ✏️ Edit the club name if needed -->
+        <!-- Main heading -->
+        <h1>ARIES Science Club</h1> <!-- ✏️ Edit the club name if needed -->
 
-            <!-- Short description below heading -->
-            <p>A joint initiative by ARIES and AcSIR.</p>  <!-- ✏️ Edit this subtitle -->
+        <!-- Short description below heading -->
+        <p>A joint initiative by ARIES and AcSIR.</p> <!-- ✏️ Edit this subtitle -->
 
-            <!-- CTA button — the href="#events" scrolls to the events section below -->
-            <a href="#events" class="btn">View Schedule</a>
+        <!-- CTA button — the href="#events" scrolls to the events section below -->
+        <a href="#events" class="btn">View Schedule</a>
 
-        </section>
+    </section>
 
 
-        <!-- ─────────────────────────────────────────────────────────────
+    <!-- ─────────────────────────────────────────────────────────────
              📅 UPCOMING EVENTS SECTION
              Cards here are generated AUTOMATICALLY from files in:
                content/events/
@@ -62,42 +63,42 @@
 
              🗑️ To remove an event, delete its .md file or set  draft: true
         ───────────────────────────────────────────────────────────────── -->
-        <section class="upcoming" id="events">
+    <section class="upcoming" id="events">
 
-            <!-- Section heading — edit the text below -->
-            <div style="text-align: center" data-aos="fade-up">
-                <h2>Upcoming Events</h2>   <!-- ✏️ Edit section title -->
-                <p class="section-subtitle">
-                    Join us for our next academic and public outreach sessions.   <!-- ✏️ Edit subtitle -->
-                </p>
+        <!-- Section heading — edit the text below -->
+        <div style="text-align: center" data-aos="fade-up">
+            <h2>Upcoming Events</h2> <!-- ✏️ Edit section title -->
+            <p class="section-subtitle">
+                Join us for our next academic and public outreach sessions. <!-- ✏️ Edit subtitle -->
+            </p>
+        </div>
+
+        <!-- Event cards — auto-generated from content/events/*.md files -->
+        <div class="events-grid">
+            {{ range where site.RegularPages "Section" "events" }}
+            <div class="event-card" data-aos="fade-up" data-aos-delay="200">
+
+                <!-- Thumbnail image — set via "image:" in the .md front matter -->
+                <img src="{{ .Params.image }}" alt="{{ .Title }}" />
+
+                <!-- Event title and short description from the .md file -->
+                <h3>{{ .Title }}</h3>
+                <p>{{ .Params.summary }}</p>
+
+                <!-- "Learn More" links to the event's own page (single.html layout) -->
+                <a href="{{ .RelPermalink }}" class="btn"
+                    style="margin-top: 15px; font-size: 0.8rem; display: inline-block; text-decoration: none;">
+                    Learn More
+                </a>
+
             </div>
+            {{ end }}
+        </div>
 
-            <!-- Event cards — auto-generated from content/events/*.md files -->
-            <div class="events-grid">
-                {{ range where site.RegularPages "Section" "events" }}
-                <div class="event-card" data-aos="fade-up" data-aos-delay="200">
-
-                    <!-- Thumbnail image — set via "image:" in the .md front matter -->
-                    <img src="{{ .Params.image }}" alt="{{ .Title }}" />
-
-                    <!-- Event title and short description from the .md file -->
-                    <h3>{{ .Title }}</h3>
-                    <p>{{ .Params.summary }}</p>
-
-                    <!-- "Learn More" links to the event's own page (single.html layout) -->
-                    <a href="{{ .RelPermalink }}" class="btn"
-                       style="margin-top: 15px; font-size: 0.8rem; display: inline-block; text-decoration: none;">
-                        Learn More
-                    </a>
-
-                </div>
-                {{ end }}
-            </div>
-
-        </section>
+    </section>
 
 
-        <!-- ─────────────────────────────────────────────────────────────
+    <!-- ─────────────────────────────────────────────────────────────
              🖼️ PAST HIGHLIGHTS SECTION  (Photo galleries & Videos)
              Content here comes from:  data/past.yml
 
@@ -106,71 +107,46 @@
                See the comments inside that file for the exact format.
 
              ℹ️ Two types are supported:
-               type: gallery  → shows a swipeable photo carousel
+               type: archive  → shows a swipeable photo carousel
                type: video    → embeds a YouTube/Vimeo video
         ───────────────────────────────────────────────────────────────── -->
-        <section class="past-events">
 
-            <div data-aos="fade-down" style="text-align: center; margin-bottom: 40px">
-                <h2>Past Highlights</h2>   <!-- ✏️ Edit section title -->
-                <p class="section-subtitle">
-                    Swipe through photos from our recent activities.   <!-- ✏️ Edit subtitle -->
-                </p>
-            </div>
+    <section class="past-events">
 
-            <!-- Loop through every entry in data/past.yml -->
-            {{ range site.Data.past }}
-            <div class="gallery-panel" data-aos="fade-up" data-aos-delay="100">
+        <div data-aos="fade-down" style="text-align: center; margin-bottom: 40px">
+            <h2>Past Highlights</h2>
+            <p class="section-subtitle">
+                A look back at our recent scientific sessions and events.
+            </p>
+        </div>
 
-                <!-- Title & subtitle come from past.yml -->
-                <div class="gallery-header">
-                    <h3>{{ .title }}</h3>
-                    <p>{{ .subtitle | safeHTML }}</p>
+        <div class="post-grid" data-aos="fade-up">
+            {{ range first 4 (where site.RegularPages "Section" "archive") }}
+            <a href="{{ .RelPermalink }}" style="text-decoration: none; color: inherit;">
+                <div class="post-card">
+                    <img src="{{ .Params.cover_image }}" alt="{{ .Title }}" />
+                    <h3>{{ .Title }}</h3>
+                    <p class="excerpt">{{ .Params.summary | truncate 120 }}</p>
+                    <p class="meta">
+                        By {{ .Params.author | default "ARIES Science Club" }},
+                        on {{ .Date.Format "02 Jan 2006" }}
+                    </p>
                 </div>
-
-                <!-- ── GALLERY type: renders a swipeable image slider ── -->
-                {{ if eq .type "gallery" }}
-                <div class="swiper gallerySwiper">
-                    <div class="swiper-wrapper">
-                        {{ range .images }}
-                        <div class="swiper-slide">
-                            <img src="{{ . }}" alt="Event Photo" />
-                        </div>
-                        {{ end }}
-                    </div>
-                </div>
-                {{ end }}
-
-                <!-- ── VIDEO type: embeds an iframe (YouTube / Vimeo) ── -->
-                {{ if eq .type "video" }}
-                <div style="height: 250px; border-radius: 12px; overflow: hidden">
-                    <iframe
-                        width="100%" height="100%"
-                        src="{{ .video_url }}"
-                        title="{{ .title }}"
-                        frameborder="0"
-                        allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture;"
-                        allowfullscreen
-                        style="border-radius: 12px"
-                    ></iframe>
-                </div>
-                {{ end }}
-
-            </div>
+            </a>
             {{ end }}
+        </div>
 
-            <!-- Button linking to the full /gallery page -->
-            <div data-aos="fade-up" style="text-align: center; margin-top: 40px">
-                <a href="/gallery" class="btn"
-                   style="background: transparent; border: 2px solid var(--primary); padding: 15px 40px;">
-                    View Full Archive ➜
-                </a>
-            </div>
+        <div data-aos="fade-up" style="text-align: center; margin-top: 40px">
+            <a href="/archive/" class="btn"
+                style="background: transparent; border: 2px solid var(--primary); padding: 15px 40px;">
+                View Full Archive ➜
+            </a>
+        </div>
 
-        </section>
+    </section>
 
 
-        <!-- ─────────────────────────────────────────────────────────────
+    <!-- ─────────────────────────────────────────────────────────────
              👥 TEAM / ORGANIZERS SECTION
              Member cards come from:  data/team.yml
 
@@ -181,50 +157,53 @@
 
              🗑️ To remove a member, delete their entry from team.yml
         ───────────────────────────────────────────────────────────────── -->
-        <section class="members" id="organizers">
+    <section class="members" id="organizers">
 
-            <div data-aos="fade-down">
-                <h2>Meet the Team</h2>   <!-- ✏️ Edit section title -->
-                <p class="section-subtitle">
-                    The research scholars organizing the events.   <!-- ✏️ Edit subtitle -->
-                </p>
-            </div>
+        <div data-aos="fade-down">
+            <h2>Meet the Team</h2> <!-- ✏️ Edit section title -->
+            <p class="section-subtitle">
+                The research scholars organizing the events. <!-- ✏️ Edit subtitle -->
+            </p>
+        </div>
 
-            <!-- Swipeable member carousel — cards auto-generated from data/team.yml -->
-            <div class="swiper membersSwiper" data-aos="fade-up" data-aos-delay="100">
-                <div class="swiper-wrapper">
-                    {{ range site.Data.team }}
-                    <div class="swiper-slide">
-                        <div class="member-profile">
-                            <!-- Profile photo — path set in team.yml -->
-                            <img src="{{ .image }}" class="avatar" alt="{{ .name }}" />
-                            <h4>{{ .name }}</h4>
-                            <p style="color: #94a3b8; font-size: 0.9rem">{{ .role }}</p>
-                        </div>
+        <!-- Swipeable member carousel — cards auto-generated from data/team.yml -->
+        <div class="swiper membersSwiper" data-aos="fade-up" data-aos-delay="100">
+            <div class="swiper-wrapper">
+                {{ range site.Data.team }}
+                <div class="swiper-slide">
+                    <div class="member-profile">
+                        <!-- Profile photo — path set in team.yml -->
+                        <img src="{{ .image }}" class="avatar" alt="{{ .name }}" />
+                        <h4>{{ .name }}</h4>
+                        <p style="color: #94a3b8; font-size: 0.9rem">{{ .role }}</p>
                     </div>
-                    {{ end }}
                 </div>
-                <div class="swiper-pagination"></div>
+                {{ end }}
             </div>
+            <div class="swiper-pagination"></div>
+        </div>
 
-        </section>
+    </section>
 
 
-        <!-- ─────────────────────────────────────────────────────────────
+    <!-- ─────────────────────────────────────────────────────────────
+            🦶 FOOTER
+            ✏️ Edit contact info and social links directly below.
+            Or move this into  layouts/partials/footer.html  if you want
+            to reuse the same footer across all pages.
+    ───────────────────────────────────────────────────────────────── -->
+    {{ partial "footer.html" . }}
+
+
+    <!-- ─────────────────────────────────────────────────────────────
              📦 Scripts — load order matters, do NOT rearrange these
         ───────────────────────────────────────────────────────────────── -->
-        <script src="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.js"></script>
-        <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
-        <script src="/js/main.js"></script>  <!-- Your custom JS lives here -->
+    <script src="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.js"></script>
+    <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
+    <script src="/js/main.js"></script> <!-- Your custom JS lives here -->
 
 
-        <!-- ─────────────────────────────────────────────────────────────
-             🦶 FOOTER
-             ✏️ Edit contact info and social links directly below.
-             Or move this into  layouts/partials/footer.html  if you want
-             to reuse the same footer across all pages.
-        ───────────────────────────────────────────────────────────────── -->
-        {{ partial "footer.html" . }}
 
-    </body>
+</body>
+
 </html>
