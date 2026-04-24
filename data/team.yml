@@ -11,14 +11,14 @@
   role: "Vice-President"
   group: "Core Committee"
   image: "/images/team/4.jpg"
-  detailed_bio: "Focuses on Solar Physics. Coordinates the scheduling, outreach initiatives, and manages guest lecture series for the club."
+  detailed_bio: "Focuses on GRB Physics. Coordinates the scheduling, outreach initiatives, and manages guest lecture series for the club."
   email: "[EMAIL_ADDRESS]"
   linkedin: ""
   instagram: ""
   hobbies: ["Data Science", "Hiking"]
 
 - name: "Mukesh"
-  role: "Accountant"
+  role: "Treasurer"
   group: "Core Committee"
   image: "/images/team/5.jpg"
   detailed_bio: "Manages the club's finances, funding requests, and event budgets. Research focuses on observational astronomy."
@@ -29,8 +29,7 @@
   role: "Member"
   group: "Web & Design Team"
   image: "/images/team/1.jpg"
-  detailed_bio: "First-year PhD student in Astrophysics at ARIES, specializing in the analysis of high-energy transients and Gamma-Ray Bursts (GRBs). Utilizes tools like HEASoft and XSPEC for joint spectral fitting and light curve generation with Fermi-GBM and Swift-BAT data."
-  email: "club@aries.res.in"
+  detailed_bio: "First-year PhD student in Astrophysics at ARIES, doing research in  high-energy transients and Gamma-Ray Bursts (GRBs)."
   linkedin: "https://linkedin.com"
   hobbies: ["Astrophotography", "Linux Customization", "ARPGs"]
 
@@ -38,7 +37,7 @@
   role: "Member"
   group: "Research Scholars"
   image: "/images/team/2.jpg"
-  detailed_bio: "Research Scholar at ARIES working on stellar physics and Exoplanet transit spectroscopy."
+  detailed_bio: "Research Scholar at ARIES working on Active Galactic Nuclei (AGN)."
   linkedin: "https://linkedin.com"
   hobbies: ["Coding", "Trekking"]
 
@@ -46,7 +45,7 @@
   role: "Member"
   group: "Research Scholars"
   image: "/images/team/3.jpg"
-  detailed_bio: "Research Scholar at ARIES focusing on Active Galactic Nuclei and radio astronomy."
+  detailed_bio: "Research Scholar at ARIES focusing on GRB."
   email: "pankaj@aries.res.in"
   hobbies: ["Astrophysics", "Machine Learning"]
 

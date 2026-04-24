@@ -1,32 +1,38 @@
 # --- Foundation Day 2026 ---
 - image: "/images/foundationday/f_1.jpg"
-  title: "Lighting the Lamp Ceremony"
+  title: "Scholars attending Foundation Day"
   year: "2026"
-  month: "March"
-  tags: ["foundation", "2026", "april"]
+  month: "April"
+  tags: ["foundation", "2026", "April"]
 
 - image: "/images/foundationday/f_2.jpg"
-  title: "Guest Lecture Series"
+  title: "Scholars attending Foundation Day"
   year: "2026"
-  month: "March"
-  tags: ["foundation", "2026", "april"]
+  month: "April"
+  tags: ["foundation", "2026", "April"]
 
 - image: "/images/foundationday/f_3.jpg"
-  title: "Science Club Organizing Committee"
+  title: "Guest Lecture Series"
   year: "2026"
-  month: "March"
-  tags: ["foundation", "2026", "april"]
+  month: "April"
+  tags: ["foundation", "2026", "April"]
 
 - image: "/images/foundationday/f_4.jpg"
   title: "Audience Interaction"
   year: "2026"
-  month: "March"
-  tags: ["foundation", "2026", "april"]
+  month: "April"
+  tags: ["foundation", "2026", "April"]
 
 - image: "/images/foundationday/f_5.jpg"
   title: "Event Conclusion & Networking"
   year: "2026"
-  month: "March"
-  tags: ["foundation", "2026", "april"]
+  month: "April"
+  tags: ["foundation", "2026", "April"]
 
 # --- Team Headshots (April 2026) ---
+
+# To Implement 
+# I want different section for each year and want to be organised them by year - month - titlle ( like breadcrumb navigation ). 
+# but i want your suggestion for that to implemnt i.e. either by creating new pages for each year and each month ( which will break the search and tag feature)
+# or by using tags but to change the layout of the page to show the tags as nested structure like year > month > title.
+
