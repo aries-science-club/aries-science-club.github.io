@@ -1,12 +1,15 @@
 ---
-title: "Mukesh"
+title: "Mukesh Kumar"
 role: "Treasurer"
-group: "Core Committee"
-image: "/images/team/5.jpg"
-email: "mukesh@aries.res.in"
+group: "Core Team"
+image: "/images/team/mukesh.png"
+email: "mukeshsharma.aries@gmail.com"
+phone: "6005504028"
+linkedin: ""
+instagram: ""
 hobbies:
-  - "Chess"
-  - "Photography"
-weight: 30
+  - "Reading scriptures"
+  - "Teaching"
+weight: 40
 ---
-Manages the club's finances, funding requests, and event budgets. Research focuses on observational astronomy.
+Institute: ARIES and IIT Roorkee. I am working on the vertical distribution of trace gases and the performance of satellite observations of trace gases, validated using Pandora measurements. I am also a part of Pandora Global Network.

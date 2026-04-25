@@ -2,7 +2,7 @@
 title: "Preeti"
 role: "Member"
 group: "Research Scholars"
-image: "/images/team/6.jpg"
+image: "/images/team/preeti.jpg"
 instagram: "https://instagram.com"
 hobbies:
   - "Reading"

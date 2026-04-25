@@ -1,13 +1,15 @@
 ---
 title: "Yash Sharma"
 role: "Member"
-group: "Web & Design Team"
-image: "/images/team/1.jpg"
-linkedin: "https://linkedin.com"
+group: "Designing, Social Media and Outreach"
+image: "/images/team/yash.png"
+email: "yash.sharma@aries.res.in"
+linkedin: "https://www.linkedin.com/in/theyashsharmaa"
+instagram: "https://instagram.com/wraithyash"
 hobbies:
-  - "Astrophotography"
-  - "Linux Customization"
-  - "ARPGs"
-weight: 40
+  - "Video Games"
+  - "Anime"
+  - "Trekking"
+weight: 50
 ---
-First-year PhD student in Astrophysics at ARIES, doing research in high-energy transients and Gamma-Ray Bursts (GRBs).
+Amigos, I am a research scholar at ARIES, Nainital, working on time-domain astronomy particularly focusing on GRBs and Supernovae. Besides my research, My "all-the-time" job is being a tech enthusiast who can't stop tinkering with new software and OS configurations. And yes, I use Arch btw. 🐧

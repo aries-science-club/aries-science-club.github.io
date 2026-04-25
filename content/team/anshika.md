@@ -2,7 +2,7 @@
 title: "Anshika"
 role: "Vice-President"
 group: "Core Committee"
-image: "/images/team/4.jpg"
+image: "/images/team/anshika.JPG"
 email: "[EMAIL_ADDRESS]"
 linkedin: ""
 instagram: ""

@@ -1,13 +1,14 @@
 ---
-title: "Rishi"
+title: "Rishi C"
 role: "President"
-group: "Core Committee"
-image: "/images/team/7.jpg"
-email: "rishi@aries.res.in"
-linkedin: "https://linkedin.com"
+group: "Core Team"
+image: "/images/team/rishi.png"
+email: "rishictk@gmail.com"
+linkedin: ""
+instagram: "https://instagram.com/rishi_c_t_k"
 hobbies:
-  - "Reading"
-  - "Public Speaking"
+  - "Gym"
+  - "Chess"
 weight: 10
 ---
-Leads the ARIES Science Club, coordinating between the student body and administration. Focuses on extragalactic astronomy and cosmological models.
+I am a Phd student working on star formation and molecular cloud dynamics. I also like to engage in science promotion and spreading logic and reasoning to general public.
