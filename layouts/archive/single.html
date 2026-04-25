@@ -54,8 +54,15 @@
                 <div class="swiper gallerySwiper">
                     <div class="swiper-wrapper">
                         {{ range .Params.images }}
+                        {{ $imgUrl := . }}
+                        {{ $caption := "Event Photo" }}
+                        {{ range site.Data.gallery }}
+                            {{ if eq .image $imgUrl }}
+                                {{ $caption = .title }}
+                            {{ end }}
+                        {{ end }}
                         <div class="swiper-slide">
-                            <img src="{{ . }}" alt="Event Photo" style="width: 100%; border-radius: 12px; object-fit: cover; cursor: pointer;" onclick="openLightbox('{{ . }}', 'Event Photo')" />
+                            <img src="{{ $imgUrl }}" alt="{{ $caption }}" style="width: 100%; border-radius: 12px; object-fit: cover; cursor: pointer;" onclick="openLightbox('{{ $imgUrl }}', '{{ $caption }}', event)" />
                         </div>
                         {{ end }}
                     </div>
@@ -97,7 +104,14 @@
         const lightboxImg = document.getElementById('lightbox-img');
         const lightboxCaption = document.getElementById('lightbox-caption');
 
-        function openLightbox(imageSrc, captionText) {
+        let startX, startY;
+        document.addEventListener('mousedown', (e) => {
+            startX = e.clientX;
+            startY = e.clientY;
+        });
+
+        function openLightbox(imageSrc, captionText, e) {
+            if (e && Math.abs(e.clientX - startX) > 5) return; // Prevent click if dragged
             if (!lightbox) return;
             lightboxImg.src = imageSrc;
             lightboxCaption.innerText = captionText;
