@@ -19,10 +19,8 @@ body {
     justify-content: space-between;
     align-items: center;
     padding: 20px 10%;
-    /* Dark, semi-transparent background with blur so it floats over the hero image */
-    background: rgba(15, 23, 42, 0.8);
-    backdrop-filter: blur(12px);
-    -webkit-backdrop-filter: blur(12px);
+    /* Solid dark background for better performance */
+    background: rgba(15, 23, 42, 0.95);
     position: fixed;
     /* Keeps it at the top when scrolling */
     top: 0;
@@ -180,9 +178,7 @@ h2 {
 }
 
 .gallery-panel {
-    background: rgba(255, 255, 255, 0.05);
-    backdrop-filter: blur(16px);
-    -webkit-backdrop-filter: blur(16px);
+    background: #1e293b;
     border: 1px solid rgba(255, 255, 255, 0.1);
     border-radius: 20px;
     padding: 40px;
@@ -276,10 +272,9 @@ h2 {
 }
 
 .member-profile {
-    background: rgba(255, 255, 255, 0.03);
+    background: #1e293b;
     padding: 25px 15px;
     border-radius: 15px;
-    backdrop-filter: blur(10px);
     height: 100%;
     /* Ensures all cards match height if text wraps */
     box-sizing: border-box;
@@ -355,10 +350,8 @@ h2 {
         top: 100%;
         left: 0;
         width: 100%;
-        background: rgba(15, 23, 42, 0.98);
+        background: #0f172a;
         /* Less transparent so text is easy to read */
-        backdrop-filter: blur(16px);
-        -webkit-backdrop-filter: blur(16px);
         flex-direction: column;
         align-items: center;
         padding: 20px 0;
@@ -628,13 +621,15 @@ h2 {
 
 /* --- HOMEPAGE HERO REWRITE --- */
 .home-hero {
-    padding: 60px 20px;
-    max-width: 900px;
-    margin: 0 auto;
+    padding: 120px 20px 80px 20px;
+    width: 100%;
+    margin: 0;
     display: flex;
     flex-direction: column; /* Stacks items vertically */
     align-items: center;    /* Forces everything (logo, button) to the dead center! */
     text-align: center;
+    background: linear-gradient(to bottom, rgba(15, 23, 42, 0.7), rgba(15, 23, 42, 1)), url("/images/hero-bg.png") no-repeat center center;
+    background-size: cover;
 }
 
 .hero-main-logo {
@@ -648,13 +643,13 @@ h2 {
     filter: drop-shadow(0 0 20px rgba(225, 29, 72, 0.2)); 
 }
 .hero-info-card {
-    background: rgba(255, 255, 255, 0.03);
+    background: rgba(15, 23, 42, 0.85);
     border: 1px solid rgba(255, 255, 255, 0.08);
     border-radius: 16px;
     padding: 40px;
     margin: 0 auto 40px auto;
+    max-width: 800px;
     box-shadow: 0 10px 30px rgba(0, 0, 0, 0.3);
-    backdrop-filter: blur(10px);
 }
 
 /* --- HOMEPAGE SPLIT: EVENTS & CALENDAR --- */
