@@ -74,13 +74,17 @@
         const lightboxCaption = document.getElementById('lightbox-caption');
 
         let startX, startY;
-        document.addEventListener('mousedown', (e) => {
+        document.addEventListener('pointerdown', (e) => {
             startX = e.clientX;
             startY = e.clientY;
-        });
+        }, { capture: true });
 
         function openLightbox(imageSrc, captionText, e) {
-            if (e && Math.abs(e.clientX - startX) > 5) return; // Prevent click if dragged
+            if (e && startX !== undefined) {
+                if (Math.abs(e.clientX - startX) > 5 || Math.abs(e.clientY - startY) > 5) {
+                    return; // Prevent click if dragged
+                }
+            }
             if (!lightbox) return;
             lightboxImg.src = imageSrc;
             lightboxCaption.innerText = captionText;
