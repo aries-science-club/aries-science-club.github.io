@@ -1,7 +1,7 @@
 ---
 title: "National Technology Day"
 date: 2026-05-11
-image: "https://images.unsplash.com/photo-1451187580459-43490279c0fa?q=80&w=800"
+cover_image: "https://images.unsplash.com/photo-1451187580459-43490279c0fa?q=80&w=800"
 summary: "Engineering and Science Symposium."
 ---
 

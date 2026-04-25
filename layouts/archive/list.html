@@ -77,115 +77,116 @@
             </div>
         </div>
 
-        <div class="post-grid" style="text-align: left;" id="eventGrid">
+        <div id="archive-container">
             
-            {{ range .Pages }}
-            <a href="{{ .RelPermalink }}" class="event-link" data-tags="{{ with .Params.tags }}{{ delimit . " " | lower }}{{ end }}" style="text-decoration: none; color: inherit;">
-                <div class="post-card" data-aos="fade-up">
-                    <img src="{{ .Params.cover_image }}" alt="{{ .Title }}" loading="lazy" />
-                    
-                    <div class="card-badges">
-                        {{ range .Params.tags }}
-                            <span class="badge-tag">{{ . }}</span>
-                        {{ end }}
-                    </div>
+            {{ range .Pages.GroupByDate "2006" }}
+                {{ $currentYear := .Key }}
+                
+                <div class="archive-year-group">
+                    <h2 class="year-divider">{{ $currentYear }}</h2>
 
-                    <h3 class="event-title">{{ .Title }}</h3>
-                    <p class="excerpt event-summary">{{ .Params.summary | truncate 150 }}</p>
-                    <p class="meta event-date">By {{ .Params.author | default "ARIES Science Club" }}, on {{ .Date.Format "02 January 2006" }}</p>
-                </div>
-            </a>
-            {{ end }}
-        </div>
+                    {{ range .Pages.GroupByDate "January" }}
+                        {{ $currentMonth := .Key }}
+                        
+                        <div class="archive-month-wrapper">
+                            
+                            <h3 class="month-breadcrumb">
+                                <span class="crumb-dim">Archive</span> 
+                                <span class="crumb-arrow">❯</span> 
+                                <span class="crumb-dim">{{ $currentYear }}</span> 
+                                <span class="crumb-arrow">❯</span> 
+                                <span class="crumb-highlight">{{ $currentMonth }}</span>
+                            </h3>
+                            
+                            <div class="post-grid" style="text-align: left;">
+                                {{ range .Pages }}
+                                <a href="{{ .RelPermalink }}" class="event-link filter-item" 
+                                   data-tags="{{ $currentYear }} {{ $currentMonth | lower }} {{ with .Params.tags }}{{ delimit . " " | lower }}{{ end }}" 
+                                   data-title="{{ .Title | lower }}" 
+                                   style="text-decoration: none; color: inherit;">
+                                    
+                                    <div class="post-card" data-aos="fade-up">
+                                        <img src="{{ .Params.cover_image }}" alt="{{ .Title }}" loading="lazy" />
+                                        
+                                        <div class="card-badges">
+                                            {{ range .Params.tags }}
+                                                <span class="badge-tag">{{ . }}</span>
+                                            {{ end }}
+                                        </div>
 
-        <div style="text-align: center; margin-top: 50px;">
-            <button id="loadMoreBtn" class="btn" style="display: none; padding: 12px 30px; font-size: 1rem; background: transparent; border: 2px solid var(--primary);">
-                Load More Events ↓
-            </button>
-        </div>
+                                        <h3 class="event-title">{{ .Title }}</h3>
+                                        <p class="excerpt event-summary">{{ .Params.summary | truncate 150 }}</p>
+                                        <p class="meta event-date">By {{ .Params.author | default "ARIES Science Club" }}, on {{ .Date.Format "02 January 2006" }}</p>
+                                    </div>
+                                </a>
+                                {{ end }}
+                            </div>
+
+                        </div>
+                    {{ end }} </div>
+            {{ end }} </div>
 
     </section>
 
     {{ partial "footer.html" . }}
 
     <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
-    <script src="/js/main.js"></script>
+    <script>AOS.init();</script>
 
     <script>
         document.addEventListener("DOMContentLoaded", function() {
             const searchInput = document.getElementById("liveSearchInput");
-            const eventLinks = document.querySelectorAll(".event-link");
+            const eventLinks = document.querySelectorAll(".filter-item");
             const chips = document.querySelectorAll(".chip");
-            const loadMoreBtn = document.getElementById("loadMoreBtn");
-
+            const monthWrappers = document.querySelectorAll(".archive-month-wrapper");
+            const yearGroups = document.querySelectorAll(".archive-year-group");
+            
             let activeTag = "all";
-            let itemsToShow = 6; // Start by showing only 6 cards
 
-            // Listen for ANY typing
-            searchInput.addEventListener("input", function() {
-                itemsToShow = 6; // Reset to 6 when they search something new
-                runFilter();
-            });
+            searchInput.addEventListener("input", runFilter);
 
-            // Listen for Tag clicks
             chips.forEach(chip => {
                 chip.addEventListener("click", function() {
                     chips.forEach(c => c.classList.remove("active"));
                     this.classList.add("active");
                     activeTag = this.getAttribute("data-tag");
-                    itemsToShow = 6; // Reset to 6 when they click a new tag
                     runFilter();
                 });
             });
 
-            // Listen for "Load More" clicks
-            loadMoreBtn.addEventListener("click", function() {
-                itemsToShow += 6; // Add 6 more cards to the limit
-                runFilter();
-            });
-
-            // The Filter Engine
             function runFilter() {
-                const searchQuery = searchInput.value.toLowerCase();
-                const searchTerms = searchQuery.trim().split(/\s+/);
+                const searchTerms = searchInput.value.toLowerCase().trim().split(/\s+/);
                 
-                let matchCount = 0; // Keep track of how many cards pass the test
-
+                // 1. Filter Individual Event Cards
                 eventLinks.forEach(link => {
-                    const titleText = link.querySelector(".event-title").innerText.toLowerCase();
-                    const summaryText = link.querySelector(".event-summary").innerText.toLowerCase();
-                    const dateText = link.querySelector(".event-date").innerText.toLowerCase();
                     const cardTags = link.getAttribute("data-tags") || "";
-
-                    const combinedText = `${titleText} ${summaryText} ${dateText} ${cardTags}`;
+                    const cardTitle = link.getAttribute("data-title") || "";
+                    const combinedText = `${cardTitle} ${cardTags}`;
 
                     const matchesSearch = searchTerms.every(term => combinedText.includes(term));
                     const matchesTag = (activeTag === "all") || cardTags.includes(activeTag);
 
-                    // If the card matches the search/tag criteria...
                     if (matchesSearch && matchesTag) {
-                        matchCount++;
-                        // Only show it if we haven't hit our limit (itemsToShow)
-                        if (matchCount <= itemsToShow) {
-                            link.style.display = "block";
-                        } else {
-                            link.style.display = "none";
-                        }
+                        link.style.display = "block";
                     } else {
-                        link.style.display = "none"; // Hide if it doesn't match
+                        link.style.display = "none";
                     }
                 });
 
-                // Logic for the Load More button
-                // If there are more matching cards hidden than we are currently showing, show the button!
-                if (matchCount > itemsToShow) {
-                    loadMoreBtn.style.display = "inline-block";
-                } else {
-                    loadMoreBtn.style.display = "none";
-                }
-            }
+                // 2. Hide empty Month Wrappers
+                monthWrappers.forEach(wrapper => {
+                    const visibleCards = Array.from(wrapper.querySelectorAll('.filter-item')).filter(card => card.style.display === 'block');
+                    wrapper.style.display = visibleCards.length > 0 ? "block" : "none";
+                });
 
-            // Run this once when the page first loads to hide the extra cards
+                // 3. Hide empty Year Groups
+                yearGroups.forEach(group => {
+                    const visibleMonths = Array.from(group.querySelectorAll('.archive-month-wrapper')).filter(month => month.style.display === 'block');
+                    group.style.display = visibleMonths.length > 0 ? "block" : "none";
+                });
+            }
+            
+            // Run once on load to ensure everything is set correctly
             runFilter();
         });
     </script>

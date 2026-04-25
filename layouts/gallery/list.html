@@ -124,27 +124,74 @@
             </div>
         </div>
 
-        <div class="photo-grid" id="photoGrid">
-            {{ range site.Data.gallery }}
+        <div id="gallery-container">
             
-            <div class="photo-card filter-item" 
-                 data-aos="zoom-in" 
-                 data-tags="{{ .year }} {{ .month | lower }} {{ with .tags }}{{ delimit . " " | lower }}{{ end }}"
-                 data-title="{{ .title | lower }}"
-                 onclick="openLightbox('{{ .image }}', '{{ .title }} ({{ .month }} {{ .year }})')">
-                
-                <img src="{{ .image }}" alt="{{ .title }}" loading="lazy" />
-                
-                <div class="photo-overlay">
-                    <div class="photo-title">{{ .title }}</div>
-                    <div class="photo-meta">{{ .month }} {{ .year }}</div>
-                </div>
-            </div>
+            {{ $years := slice }}
+            {{ range site.Data.gallery }}
+                {{ if not (in $years .year) }}{{ $years = $years | append .year }}{{ end }}
             {{ end }}
-        </div>
 
+            {{ range sort $years "value" "desc" }}
+                {{ $currentYear := . }}
+                <div class="gallery-year-group">
+                    <h2 class="year-divider">{{ $currentYear }}</h2>
+
+                    {{ $months := slice "January" "February" "March" "April" "May" "June" "July" "August" "September" "October" "November" "December" }}
+                    
+                    {{ range $months }}
+                        {{ $currentMonth := . }}
+                        {{ $photosInMonth := where (where site.Data.gallery "year" $currentYear) "month" $currentMonth }}
+
+                        {{ if gt (len $photosInMonth) 0 }}
+                        <div class="gallery-month-wrapper">
+                            
+                            {{ $eventsInMonth := slice }}
+                            {{ range $photosInMonth }}
+                                {{ $evt := .event | default "General Events" }}
+                                {{ if not (in $eventsInMonth $evt) }}{{ $eventsInMonth = $eventsInMonth | append $evt }}{{ end }}
+                            {{ end }}
+
+                            {{ range $eventsInMonth }}
+                                {{ $currentEvent := . }}
+                                
+                                {{ $photosInEvent := slice }}
+                                {{ range $photosInMonth }}
+                                    {{ $thisEvt := .event | default "General Events" }}
+                                    {{ if eq $thisEvt $currentEvent }}{{ $photosInEvent = $photosInEvent | append . }}{{ end }}
+                                {{ end }}
+
+                                <div class="gallery-event-section" style="margin-bottom: 50px;">
+                                    
+                                    <h3 class="month-breadcrumb">
+                                        <span class="crumb-dim">Gallery</span> 
+                                        <span class="crumb-arrow">❯</span> 
+                                        <span class="crumb-dim">{{ $currentYear }}</span> 
+                                        <span class="crumb-arrow">❯</span> 
+                                        <span class="crumb-dim">{{ $currentMonth }}</span>
+                                        <span class="crumb-arrow">❯</span> 
+                                        <span class="crumb-highlight">{{ $currentEvent }}</span>
+                                    </h3>
+                                    
+                                    <div class="photo-grid">
+                                        {{ range $photosInEvent }}
+                                        <div class="photo-card filter-item" 
+                                             data-aos="fade-up" 
+                                             data-tags="{{ .year }} {{ .month | lower }} {{ .event | lower }} {{ with .tags }}{{ delimit . " " | lower }}{{ end }}"
+                                             data-title="{{ .title | lower }}"
+                                             onclick="openLightbox('{{ .image }}', '{{ .title }}')">
+                                            
+                                            <img src="{{ .image }}" alt="{{ .title }}" loading="lazy" />
+                                            <div class="photo-overlay">
+                                                <div class="photo-title">{{ .title }}</div>
+                                            </div>
+                                        </div>
+                                        {{ end }}
+                                    </div>
+                                </div>
+                            {{ end }} </div>
+                        {{ end }} {{ end }} </div>
+            {{ end }} </div>
     </section>
-
     <div id="lightbox" onclick="closeLightbox()">
         <span id="lightbox-close">&times;</span>
         <img id="lightbox-img" src="" alt="Full Screen Photo">
@@ -158,10 +205,12 @@
 
     <script>
         document.addEventListener("DOMContentLoaded", function() {
-            // --- SEARCH ENGINE ---
             const searchInput = document.getElementById("liveSearchInput");
             const photoCards = document.querySelectorAll(".filter-item");
             const chips = document.querySelectorAll(".chip");
+            const monthSections = document.querySelectorAll(".gallery-month-section");
+            const yearGroups = document.querySelectorAll(".gallery-year-group");
+            
             let activeTag = "all";
 
             searchInput.addEventListener("input", runFilter);
@@ -178,9 +227,10 @@
             function runFilter() {
                 const searchTerms = searchInput.value.toLowerCase().trim().split(/\s+/);
                 
+                // 1. Filter Individual Photos
                 photoCards.forEach(card => {
-                    const cardTags = card.getAttribute("data-tags");
-                    const cardTitle = card.getAttribute("data-title");
+                    const cardTags = card.getAttribute("data-tags") || "";
+                    const cardTitle = card.getAttribute("data-title") || "";
                     const combinedText = `${cardTitle} ${cardTags}`;
 
                     const matchesSearch = searchTerms.every(term => combinedText.includes(term));
@@ -191,6 +241,27 @@
                     } else {
                         card.style.display = "none";
                     }
+                });
+
+                // 2. Hide empty Event Sections
+                const eventSections = document.querySelectorAll(".gallery-event-section");
+                eventSections.forEach(section => {
+                    const visibleCards = Array.from(section.querySelectorAll('.filter-item')).filter(card => card.style.display === 'block');
+                    section.style.display = visibleCards.length > 0 ? "block" : "none";
+                });
+
+                // 3. Hide empty Month Wrappers
+                const monthWrappers = document.querySelectorAll(".gallery-month-wrapper");
+                monthWrappers.forEach(wrapper => {
+                    const visibleEvents = Array.from(wrapper.querySelectorAll('.gallery-event-section')).filter(evt => evt.style.display === 'block');
+                    wrapper.style.display = visibleEvents.length > 0 ? "block" : "none";
+                });
+
+                // 4. Hide empty Year Groups
+                const yearGroups = document.querySelectorAll(".gallery-year-group");
+                yearGroups.forEach(group => {
+                    const visibleMonths = Array.from(group.querySelectorAll('.gallery-month-wrapper')).filter(month => month.style.display === 'block');
+                    group.style.display = visibleMonths.length > 0 ? "block" : "none";
                 });
             }
         });
@@ -204,12 +275,12 @@
             lightboxImg.src = imageSrc;
             lightboxCaption.innerText = captionText;
             lightbox.style.display = 'flex';
-            document.body.style.overflow = 'hidden'; // Prevents scrolling behind the image
+            document.body.style.overflow = 'hidden'; 
         }
 
         function closeLightbox() {
             lightbox.style.display = 'none';
-            document.body.style.overflow = 'auto'; // Re-enables scrolling
+            document.body.style.overflow = 'auto'; 
         }
     </script>
 </body>
