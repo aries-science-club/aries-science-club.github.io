@@ -55,8 +55,6 @@
              📅 UPCOMING EVENTS and CALENDER SECTION
              Cards here are generated AUTOMATICALLY from files in:
                content/events/
-
-
         ───────────────────────────────────────────────────────────────── -->
 
     <section class="home-split-section" style="max-width: 1200px; margin: 20px auto; padding: 0 20px; min-height: auto;">
@@ -71,7 +69,7 @@
                         {{ $upcomingEvents = $upcomingEvents | append . }}
                     {{ end }}
                 {{ end }}
-                {{ range first 2 $upcomingEvents }}
+                {{ range first 1 $upcomingEvents }}
                 <div class="homepage-event-card">
                     <a href="{{ .RelPermalink }}" style="text-decoration: none; color: inherit;">
                         
@@ -146,16 +144,8 @@
 
 
     <!-- ─────────────────────────────────────────────────────────────
-             🖼️ PAST HIGHLIGHTS SECTION  (Photo galleries & Videos)
-             Content here comes from:  data/past.yml
-
-             ➕ To add a new past event:
-               Open data/past.yml and add a new entry at the TOP.
-               See the comments inside that file for the exact format.
-
-             ℹ️ Two types are supported:
-               type: archive  → shows a swipeable photo carousel
-               type: video    → embeds a YouTube/Vimeo video
+             🖼️ PAST HIGHLIGHTS SECTION
+             Content here comes from Markdown files in: content/archive/
         ───────────────────────────────────────────────────────────────── -->
 
     <section class="past-events" style="padding-top: 20px; min-height: auto;">
@@ -168,7 +158,13 @@
         </div>
 
         <div class="post-grid" data-aos="fade-up">
-            {{ range first 4 (where site.RegularPages "Section" "archive") }}
+            {{ $pastEvents := slice }}
+            {{ range (where site.RegularPages "Section" "archive") }}
+                {{ if not .Params.hide_from_past_highlights }}
+                    {{ $pastEvents = $pastEvents | append . }}
+                {{ end }}
+            {{ end }}
+            {{ range first 4 $pastEvents }}
             <a href="{{ .RelPermalink }}" style="text-decoration: none; color: inherit;">
                 <div class="post-card">
                     <img src="{{ .Params.cover_image }}" alt="{{ .Title }}" />
@@ -216,14 +212,16 @@
         <!-- Swipeable member carousel — cards auto-generated from data/team.yml -->
         <div class="swiper membersSwiper" data-aos="fade-up" data-aos-delay="100">
             <div class="swiper-wrapper">
-                {{ range site.Data.team }}
+                {{ range sort (where site.RegularPages "Section" "team") "Params.weight" }}
                 <div class="swiper-slide">
-                    <div class="member-profile">
-                        <!-- Profile photo — path set in team.yml -->
-                        <img src="{{ .image }}" class="avatar" alt="{{ .name }}" />
-                        <h4>{{ .name }}</h4>
-                        <p style="color: #94a3b8; font-size: 0.9rem">{{ .role }}</p>
-                    </div>
+                    <a href="/about/#{{ .Title | urlize }}" style="text-decoration: none; color: inherit; display: block; height: 100%;">
+                        <div class="member-profile">
+                            <!-- Profile photo — path set in markdown front matter -->
+                            <img src="{{ .Params.image }}" class="avatar" alt="{{ .Title }}" />
+                            <h4>{{ .Title }}</h4>
+                            <p style="color: #94a3b8; font-size: 0.9rem">{{ .Params.role }}</p>
+                        </div>
+                    </a>
                 </div>
                 {{ end }}
             </div>
