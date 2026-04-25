@@ -21,12 +21,22 @@ summary: "This is a detailed template explaining how to create rich archive page
 # 5. AUTHOR: Name of the person who wrote the post or "ARIES Science Club".
 author: "ARIES Science Club"
 
-# 6. HIDE FROM PAST HIGHLIGHTS (Optional):
+# 6. VIDEO (Optional): Automatically embeds a YouTube/Vimeo video at the bottom of the page.
+# Provide the full embed URL (e.g., https://www.youtube.com/embed/VIDEO_ID)
+video_url: "https://www.youtube.com/embed/lILgstYoNV4"
+
+# 7. IMAGE GALLERY (Optional): Automatically creates a swipeable photo carousel!
+# List all your image paths here.
+images:
+  - "/images/placeholder.jpg"
+  - "/images/placeholder.jpg"
+
+# 8. HIDE FROM PAST HIGHLIGHTS (Optional):
 # If set to 'true', this event will NOT show up in the "Past Highlights" section 
 # on the homepage. However, it WILL still show up on the main Archive page.
 hide_from_past_highlights: true
 
-# 7. TAGS (Optional): Used for the interactive filter buttons on the Archive page.
+# 9. TAGS (Optional): Used for the interactive filter buttons on the Archive page.
 # Try to keep these consistent (e.g., "astrophysics", "meeting", "guest-lecture").
 tags: ["template", "guide"]
 ---
