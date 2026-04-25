@@ -264,8 +264,8 @@ h2 {
 
 /* Lock the width of each card so they don't stretch */
 .membersSwiper .swiper-slide {
-    width: 150px;
-    /* Adjust this to make the cards wider or narrower */
+    width: 250px;
+    /* Wider cards for a more premium look */
     height: auto;
     transform: translateZ(0);
     will-change: transform;
@@ -273,19 +273,36 @@ h2 {
 
 .member-profile {
     background: #1e293b;
-    padding: 25px 15px;
-    border-radius: 15px;
+    padding: 35px 20px;
+    border-radius: 20px;
     height: 100%;
     /* Ensures all cards match height if text wraps */
     box-sizing: border-box;
+    text-align: center;
+    border: 1px solid rgba(255, 255, 255, 0.05);
+    transition: transform 0.3s ease, border-color 0.3s ease;
+}
+
+.member-profile:hover {
+    transform: translateY(-8px);
+    border-color: rgba(225, 29, 72, 0.4);
 }
 
 .avatar {
-    width: 100px;
-    height: 100px;
+    width: 120px;
+    height: 120px;
     background: #94a3b8;
     border-radius: 50%;
-    margin: 0 auto 15px auto;
+    margin: 0 auto 20px auto;
+    object-fit: cover;
+    border: 3px solid var(--primary);
+    padding: 4px;
+}
+
+.member-profile h4 {
+    font-size: 1.25rem;
+    margin-bottom: 8px;
+    color: white;
 }
 
 /* Style the dots at the bottom */
