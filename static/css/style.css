@@ -695,7 +695,7 @@ h2 {
     border: 1px solid rgba(255, 255, 255, 0.08);
     border-radius: 12px;
     padding: 25px;
-    height: 100%; /* Stretches to match the adjacent column */
+    height: max-content; /* Prevents stretching to match adjacent column height */
     display: flex;
     flex-direction: column;
 }
