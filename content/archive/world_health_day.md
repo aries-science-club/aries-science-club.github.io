@@ -7,13 +7,13 @@ cover_image: "https://plus.unsplash.com/premium_photo-1764702405355-db2070252507
 summary: "The annual celebration featuring guest lectures."
 video_url: "https://www.youtube.com/embed/lILgstYoNV4"  # ← add this
 images:
-  - "/images/worldhealthday/w_1.jpg"
-  - "/images/worldhealthday/w_2.jpg"
-  - "/images/worldhealthday/w_3.jpg"
-  - "/images/worldhealthday/w_4.jpg"
-  - "/images/worldhealthday/w_5.jpg"
-  - "/images/worldhealthday/w_6.jpg"
-  - "/images/worldhealthday/w_7.jpg"
+  - "/images/worldhealthday/w_1.png"
+  - "/images/worldhealthday/w_2.png"
+  - "/images/worldhealthday/w_3.png"
+  - "/images/worldhealthday/w_4.png"
+  - "/images/worldhealthday/w_5.png"
+  - "/images/worldhealthday/w_6.png"
+  - "/images/worldhealthday/w_7.png"
 tags: ["health", "2026"]
 ---
 ### ARIES Science Club
