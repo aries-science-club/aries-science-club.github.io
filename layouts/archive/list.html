@@ -103,9 +103,10 @@
                                 <a href="{{ .RelPermalink }}" class="event-link filter-item" 
                                    data-tags="{{ $currentYear }} {{ $currentMonth | lower }} {{ with .Params.tags }}{{ delimit . " " | lower }}{{ end }}" 
                                    data-title="{{ .Title | lower }}" 
-                                   style="text-decoration: none; color: inherit;">
+                                   style="text-decoration: none; color: inherit;"
+                                   data-aos="fade-up">
                                     
-                                    <div class="post-card" data-aos="fade-up">
+                                    <div class="post-card">
                                         <img src="{{ .Params.cover_image }}" alt="{{ .Title }}" loading="lazy" />
                                         
                                         <div class="card-badges">
