@@ -115,42 +115,59 @@
 
     <script>
         /**
-         * Scroll the target team-member card to the visual centre of the viewport.
-         * Works on mobile, tablet, and desktop.
-         * Triggered when the page is loaded with a URL hash, e.g. /about/#anshika
+         * Scroll a team-member card into a good view position.
+         *
+         * Strategy:
+         *  - Use offsetTop traversal (absolute page coords — never stale).
+         *  - Wait 200 ms so AOS + layout fully settle before measuring.
+         *  - If the card is SHORT (fits below navbar): centre it in the usable area.
+         *  - If the card is TALL (taller than usable area): scroll to its TOP,
+         *    just clearing the navbar, so the name/photo are always visible.
          */
         function scrollHashCardToCenter() {
-            const hash = window.location.hash; // e.g. "#anshika"
+            const hash = window.location.hash;   // e.g. "#anshika"
             if (!hash) return;
 
             const target = document.querySelector(hash);
             if (!target) return;
 
-            // Use requestAnimationFrame to wait for layout to settle after AOS init
-            requestAnimationFrame(function () {
-                requestAnimationFrame(function () {
-                    const cardRect      = target.getBoundingClientRect();
-                    const cardCenter    = cardRect.top + window.scrollY + cardRect.height / 2;
-                    // Account for the fixed navbar so the card isn't hidden behind it.
-                    // Center within the *usable* visible area (below the navbar).
-                    const navbarHeight  = document.querySelector('.navbar')?.offsetHeight || 0;
-                    const usableCenter  = navbarHeight + (window.innerHeight - navbarHeight) / 2;
-                    const scrollTo      = cardCenter - usableCenter;
+            setTimeout(function () {
+                const navbar      = document.querySelector('.navbar');
+                const navH        = navbar ? navbar.offsetHeight : 0;
+                const PADDING     = 16;                      // breathing room below navbar
+                const offset      = navH + PADDING;          // first visible pixel
 
-                    window.scrollTo({
-                        top: Math.max(0, scrollTo),
-                        behavior: "smooth"
-                    });
+                // Walk the offsetParent chain for a stable absolute position
+                let cardTop = 0;
+                let el = target;
+                while (el) {
+                    cardTop += el.offsetTop;
+                    el = el.offsetParent;
+                }
+                const cardHeight  = target.offsetHeight;
+                const usableH     = window.innerHeight - offset;
+
+                let scrollTo;
+                if (cardHeight >= usableH) {
+                    // Card taller than screen → pin its top just below the navbar
+                    scrollTo = cardTop - offset;
+                } else {
+                    // Card fits → centre it in the usable area
+                    scrollTo = cardTop - offset - (usableH - cardHeight) / 2;
+                }
+
+                window.scrollTo({
+                    top: Math.max(0, scrollTo),
+                    behavior: "smooth"
                 });
-            });
+            }, 200);   // wait for AOS + layout to settle
         }
 
-        // Run on initial load
+        // Run on initial page load
         window.addEventListener("load", scrollHashCardToCenter);
 
-        // Also handle in-page hash changes (e.g. back/forward navigation)
+        // Handle back/forward navigation with a hash
         window.addEventListener("hashchange", function () {
-            // Small delay so the browser doesn't fight our scroll
             setTimeout(scrollHashCardToCenter, 50);
         });
     </script>
