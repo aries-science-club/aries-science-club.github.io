@@ -4,6 +4,7 @@
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>{{ .Title }} | ARIES Science Club</title>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.css" />
     <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet" />
     <link rel="stylesheet" href="/css/style.css" />
     <style>
@@ -36,9 +37,11 @@
 
     <section style="padding-top: 20px; max-width: 1200px; margin: 0 auto; display: block;" data-aos="fade-up">
         
+        {{ if .Params.cover_image }}
         <div style="width: 100%; height: 350px; border-radius: 20px; overflow: hidden; margin-bottom: 40px; box-shadow: 0 10px 30px rgba(0,0,0,0.5);">
-            <img src="{{ .Params.cover_image }}" alt="{{ .Title }}" style="width: 100%; height: 100%; object-fit: cover; cursor: pointer;" onclick="openLightbox('{{ .Params.cover_image }}', '{{ .Title }}', event)" />
+            <img src="{{ .Params.cover_image }}" alt="{{ default .Title .Params.cover_image_title }}" style="width: 100%; height: 100%; object-fit: cover; cursor: pointer;" onclick="openLightbox('{{ .Params.cover_image }}', '{{ default .Title .Params.cover_image_title }}', event)" />
         </div>
+        {{ end }}
 
         <h1 style="font-size: 3rem; margin-bottom: 5px;">{{ .Title }}</h1>
         <h3 style="color: var(--primary); margin-top: 0; margin-bottom: 30px;">
@@ -47,12 +50,33 @@
 
         <div style="color: #cbd5e1; line-height: 1.8; font-size: 1.1rem; background: rgba(255,255,255,0.03); padding: 40px; border-radius: 15px; border: 1px solid rgba(255,255,255,0.05);">
             {{ .Content }}
-        </div>
 
-        <div style="text-align: center; margin-top: 40px;">
-            <a href="mailto:club@aries.res.in?subject=RSVP: {{ .Title }}" class="btn" style="padding: 15px 50px; font-size: 1.2rem;">
-                RSVP / Register Now
-            </a>
+            {{/* Photo carousel — only slides whose path exists in gallery.yml are shown */}}
+            {{ if .Params.images }}
+            <hr style="border-color: rgba(255,255,255,0.08); margin: 30px 0;" />
+            <div class="swiper gallerySwiper">
+                <div class="swiper-wrapper">
+                    {{ range .Params.images }}
+                    {{ $imgUrl := . }}
+                    {{ $caption := "" }}
+                    {{ $found := false }}
+                    {{ range site.Data.gallery }}
+                        {{ if eq .image $imgUrl }}
+                            {{ $caption = .title }}
+                            {{ $found = true }}
+                        {{ end }}
+                    {{ end }}
+                    {{ if $found }}
+                    <div class="swiper-slide">
+                        <img src="{{ $imgUrl }}" alt="{{ $caption }}"
+                             style="width: 100%; border-radius: 12px; object-fit: cover; cursor: pointer;"
+                             onclick="openLightbox('{{ $imgUrl }}', '{{ $caption }}', event)" />
+                    </div>
+                    {{ end }}
+                    {{ end }}
+                </div>
+            </div>
+            {{ end }}
         </div>
 
     </section>
@@ -65,6 +89,7 @@
         <div id="lightbox-caption"></div>
     </div>
 
+    <script src="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.js"></script>
     <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
     <script src="/js/main.js"></script>
     <script>

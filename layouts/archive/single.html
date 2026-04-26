@@ -31,12 +31,22 @@
 
     <div class="breadcrumbs">
         <a href="/">Home</a> <span>/</span> 
-        <a href="/gallery/">Past Highlights</a> <span>/</span> 
+        <a href="/archive/">Archive</a> <span>/</span> 
         <span style="color: #f8fafc;">{{ .Title }}</span>
     </div>
 
-    <section style="padding-top: 20px;">
-        <div class="gallery-panel" style="max-width: 1200px; margin: 0 auto; gap: 40px;" data-aos="fade-up">
+    <section style="padding-top: 20px; max-width: 1200px; margin: 0 auto;">
+
+        {{/* Cover image — shown when cover_image is set; title from cover_image_title front-matter */}}
+        {{ if .Params.cover_image }}
+        <div style="width: 100%; height: 350px; border-radius: 20px; overflow: hidden; margin-bottom: 40px; box-shadow: 0 10px 30px rgba(0,0,0,0.5);" data-aos="fade-up">
+            <img src="{{ .Params.cover_image }}" alt="{{ default .Title .Params.cover_image_title }}"
+                 style="width: 100%; height: 100%; object-fit: cover; cursor: pointer;"
+                 onclick="openLightbox('{{ .Params.cover_image }}', '{{ default .Title .Params.cover_image_title }}', event)" />
+        </div>
+        {{ end }}
+
+        <div class="gallery-panel" style="margin: 0 auto; gap: 40px;" data-aos="fade-up">
             
             <div style="width: 100%;">
                 <div class="gallery-header">
@@ -49,21 +59,25 @@
             </div>
 
             <div style="width: 100%; overflow: hidden; margin-top: 40px;">
-                {{/* Show photo carousel if images are provided */}}
+                {{/* Show photo carousel — only slides whose path exists in gallery.yml are shown */}}
                 {{ if .Params.images }}
                 <div class="swiper gallerySwiper">
                     <div class="swiper-wrapper">
                         {{ range .Params.images }}
                         {{ $imgUrl := . }}
-                        {{ $caption := "Event Photo" }}
+                        {{ $caption := "" }}
+                        {{ $found := false }}
                         {{ range site.Data.gallery }}
                             {{ if eq .image $imgUrl }}
                                 {{ $caption = .title }}
+                                {{ $found = true }}
                             {{ end }}
                         {{ end }}
+                        {{ if $found }}
                         <div class="swiper-slide">
                             <img src="{{ $imgUrl }}" alt="{{ $caption }}" style="width: 100%; border-radius: 12px; object-fit: cover; cursor: pointer;" onclick="openLightbox('{{ $imgUrl }}', '{{ $caption }}', event)" />
                         </div>
+                        {{ end }}
                         {{ end }}
                     </div>
                 </div>

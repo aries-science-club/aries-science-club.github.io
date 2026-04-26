@@ -4,8 +4,214 @@
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Resources | ARIES Science Club</title>
+    <meta name="description" content="Club resources, PDFs, posters, and materials from ARIES / AcSIR Science Club." />
     <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet" />
     <link rel="stylesheet" href="/css/style.css" />
+    <style>
+        /* ---- Resources Page ---- */
+        .resources-hero {
+            text-align: center;
+            padding: 60px 20px 40px;
+        }
+        .resources-hero h1 {
+            font-size: clamp(2rem, 5vw, 3.2rem);
+            margin-bottom: 12px;
+        }
+        .resources-hero p {
+            color: #94a3b8;
+            font-size: 1.15rem;
+            max-width: 600px;
+            margin: 0 auto 40px;
+        }
+
+        /* Filter tabs */
+        .filter-tabs {
+            display: flex;
+            justify-content: center;
+            gap: 12px;
+            flex-wrap: wrap;
+            margin-bottom: 50px;
+        }
+        .filter-tab {
+            padding: 8px 22px;
+            border-radius: 50px;
+            border: 1px solid rgba(255,255,255,0.15);
+            background: rgba(255,255,255,0.04);
+            color: #94a3b8;
+            font-size: 0.9rem;
+            cursor: pointer;
+            transition: all 0.2s;
+            font-family: inherit;
+        }
+        .filter-tab:hover,
+        .filter-tab.active {
+            background: var(--primary, #e11d48);
+            border-color: var(--primary, #e11d48);
+            color: #fff;
+        }
+
+        /* Resource grid */
+        .resources-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
+            gap: 28px;
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 20px 80px;
+        }
+
+        .resource-card {
+            background: rgba(255,255,255,0.04);
+            border: 1px solid rgba(255,255,255,0.08);
+            border-radius: 16px;
+            overflow: hidden;
+            transition: transform 0.25s, box-shadow 0.25s, border-color 0.25s;
+            display: flex;
+            flex-direction: column;
+        }
+        .resource-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 16px 40px rgba(0,0,0,0.4);
+            border-color: rgba(225, 29, 72, 0.35);
+        }
+
+        /* Thumbnail area */
+        .resource-thumb {
+            position: relative;
+            width: 100%;
+            height: 200px;
+            overflow: hidden;
+            background: rgba(255,255,255,0.03);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+        .resource-thumb img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            transition: transform 0.4s;
+        }
+        .resource-card:hover .resource-thumb img {
+            transform: scale(1.04);
+        }
+
+        /* PDF placeholder icon */
+        .pdf-icon-wrap {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            gap: 10px;
+            color: #e11d48;
+        }
+        .pdf-icon-wrap svg { width: 60px; height: 60px; }
+        .pdf-icon-wrap span { font-size: 0.85rem; color: #94a3b8; }
+
+        /* Type badge */
+        .type-badge {
+            position: absolute;
+            top: 12px;
+            left: 12px;
+            padding: 4px 12px;
+            border-radius: 50px;
+            font-size: 0.75rem;
+            font-weight: 600;
+            text-transform: uppercase;
+            letter-spacing: 0.05em;
+        }
+        .badge-pdf  { background: rgba(225,29,72,0.85);  color: #fff; }
+        .badge-poster { background: rgba(99,102,241,0.85); color: #fff; }
+        .badge-photo  { background: rgba(16,185,129,0.85); color: #fff; }
+        .badge-other  { background: rgba(245,158,11,0.85); color: #fff; }
+
+        /* Card body */
+        .resource-body {
+            padding: 20px;
+            flex: 1;
+            display: flex;
+            flex-direction: column;
+            gap: 8px;
+        }
+        .resource-title {
+            font-size: 1.05rem;
+            font-weight: 600;
+            color: #f8fafc;
+            line-height: 1.4;
+        }
+        .resource-desc {
+            font-size: 0.88rem;
+            color: #94a3b8;
+            line-height: 1.5;
+            flex: 1;
+        }
+        .resource-date {
+            font-size: 0.78rem;
+            color: #64748b;
+        }
+        .resource-actions {
+            margin-top: 14px;
+            display: flex;
+            gap: 10px;
+            flex-wrap: wrap;
+        }
+        .res-btn {
+            display: inline-flex;
+            align-items: center;
+            gap: 6px;
+            padding: 8px 18px;
+            border-radius: 8px;
+            font-size: 0.85rem;
+            font-weight: 500;
+            text-decoration: none;
+            transition: all 0.2s;
+            border: 1px solid transparent;
+        }
+        .res-btn-primary {
+            background: var(--primary, #e11d48);
+            color: #fff;
+        }
+        .res-btn-primary:hover {
+            background: #be123c;
+            box-shadow: 0 4px 14px rgba(225,29,72,0.4);
+        }
+        .res-btn-outline {
+            background: transparent;
+            border-color: rgba(255,255,255,0.2);
+            color: #cbd5e1;
+        }
+        .res-btn-outline:hover {
+            border-color: rgba(255,255,255,0.5);
+            color: #fff;
+        }
+
+        /* Lightbox */
+        #res-lightbox {
+            display: none; position: fixed; z-index: 9999;
+            top: 0; left: 0; width: 100%; height: 100%;
+            background: rgba(10,15,28,0.97);
+            align-items: center; justify-content: center;
+            flex-direction: column;
+        }
+        #res-lightbox img {
+            max-width: 92%; max-height: 82vh;
+            border-radius: 10px;
+            box-shadow: 0 12px 50px rgba(0,0,0,0.6);
+        }
+        #res-lightbox-caption {
+            color: #cbd5e1; margin-top: 16px; font-size: 1rem;
+        }
+        #res-lightbox-close {
+            position: absolute; top: 28px; right: 38px;
+            color: white; font-size: 3rem; cursor: pointer;
+            transition: color 0.2s; line-height: 1;
+        }
+        #res-lightbox-close:hover { color: var(--primary, #e11d48); }
+
+        .empty-state {
+            text-align: center; color: #64748b;
+            padding: 80px 20px; grid-column: 1/-1;
+        }
+    </style>
 </head>
 <body>
     {{ partial "navbar.html" . }}
@@ -14,12 +220,129 @@
         <a href="/">Home</a> <span>/</span> <span style="color: #f8fafc;">Resources</span>
     </div>
 
-    <section style="max-width: 1200px; margin: 0 auto; padding-top: 40px; min-height: 50vh; text-align: center;">
-        <h1 style="font-size: 3rem; margin-bottom: 10px;">Club Resources</h1>
-        <p style="color: #94a3b8; font-size: 1.2rem;">Posters and materials will be displayed here.</p>
-    </section>
+    <div class="resources-hero" data-aos="fade-up">
+        <h1>Club Resources</h1>
+        <p>PDFs, posters, and materials from the ARIES / AcSIR Science Club.</p>
+
+        <!-- Filter tabs -->
+        <div class="filter-tabs">
+            <button class="filter-tab active" onclick="filterResources('all', this)" id="tab-all">All</button>
+            <button class="filter-tab" onclick="filterResources('pdf', this)" id="tab-pdf">📄 PDFs</button>
+            <button class="filter-tab" onclick="filterResources('poster', this)" id="tab-poster">🖼️ Posters</button>
+            <button class="filter-tab" onclick="filterResources('photo', this)" id="tab-photo">📷 Photos</button>
+        </div>
+    </div>
+
+    <!-- Resource Cards -->
+    <div class="resources-grid" id="resources-grid">
+        {{ range (where .Pages "Params.draft" "ne" true) }}
+        {{ $type := lower (default "other" .Params.type) }}
+        <div class="resource-card" data-type="{{ $type }}" data-aos="fade-up">
+            <div class="resource-thumb">
+                {{ if .Params.thumbnail }}
+                    <img src="{{ .Params.thumbnail }}" alt="{{ .Title }}"
+                         {{ if or (eq $type "poster") (eq $type "photo") }}
+                         onclick="openResLightbox('{{ .Params.thumbnail }}', '{{ default .Title .Params.thumbnail_title }}')"
+                         style="cursor: zoom-in;"
+                         {{ end }} />
+                {{ else if eq $type "pdf" }}
+                    <div class="pdf-icon-wrap">
+                        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5">
+                            <path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"/>
+                            <polyline points="14 2 14 8 20 8"/>
+                            <line x1="9" y1="13" x2="15" y2="13"/>
+                            <line x1="9" y1="17" x2="15" y2="17"/>
+                            <line x1="9" y1="9" x2="11" y2="9"/>
+                        </svg>
+                        <span>PDF Document</span>
+                    </div>
+                {{ else }}
+                    <div class="pdf-icon-wrap" style="color:#6366f1;">
+                        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5">
+                            <rect x="3" y="3" width="18" height="18" rx="2"/>
+                            <circle cx="8.5" cy="8.5" r="1.5"/>
+                            <polyline points="21 15 16 10 5 21"/>
+                        </svg>
+                        <span>Resource</span>
+                    </div>
+                {{ end }}
+                <span class="type-badge badge-{{ $type }}">{{ $type }}</span>
+            </div>
+
+            <div class="resource-body">
+                <div class="resource-title">{{ .Title }}</div>
+                {{ if .Params.description }}
+                <div class="resource-desc">{{ .Params.description }}</div>
+                {{ else if .Summary }}
+                <div class="resource-desc">{{ .Summary }}</div>
+                {{ end }}
+                <div class="resource-date">📅 {{ .Date.Format "January 2006" }}</div>
+
+                <div class="resource-actions">
+                    {{ if .Params.file }}
+                        {{ if eq $type "pdf" }}
+                        <a href="{{ .Params.file }}" class="res-btn res-btn-primary" target="_blank" rel="noopener">
+                            <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"/><polyline points="7 10 12 15 17 10"/><line x1="12" y1="15" x2="12" y2="3"/></svg>
+                            Download PDF
+                        </a>
+                        <a href="{{ .Params.file }}" class="res-btn res-btn-outline" target="_blank" rel="noopener">View</a>
+                        {{ else }}
+                        <a href="{{ .Params.file }}" class="res-btn res-btn-primary" target="_blank" rel="noopener">
+                            <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"/><polyline points="7 10 12 15 17 10"/><line x1="12" y1="15" x2="12" y2="3"/></svg>
+                            Download
+                        </a>
+                        {{ end }}
+                    {{ end }}
+                    {{ if and .Params.thumbnail (or (eq $type "poster") (eq $type "photo")) }}
+                    <button onclick="openResLightbox('{{ .Params.thumbnail }}', '{{ default .Title .Params.thumbnail_title }}')" class="res-btn res-btn-outline" style="border: none; cursor: pointer; font-family: inherit;">
+                        🔍 View Full
+                    </button>
+                    {{ end }}
+                </div>
+            </div>
+        </div>
+        {{ else }}
+        <div class="empty-state">
+            <p style="font-size: 2rem;">📂</p>
+            <p>No resources yet. Add <code>.md</code> files to <code>content/resources/</code> to get started.</p>
+        </div>
+        {{ end }}
+    </div>
 
     {{ partial "footer.html" . }}
+
+    <!-- Lightbox -->
+    <div id="res-lightbox" onclick="closeResLightbox()">
+        <span id="res-lightbox-close">&times;</span>
+        <img id="res-lightbox-img" src="" alt="Full Size" />
+        <div id="res-lightbox-caption"></div>
+    </div>
+
+    <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
     <script src="/js/main.js"></script>
+    <script>
+        // Filter
+        function filterResources(type, btn) {
+            document.querySelectorAll('.filter-tab').forEach(t => t.classList.remove('active'));
+            btn.classList.add('active');
+            document.querySelectorAll('.resource-card').forEach(card => {
+                card.style.display = (type === 'all' || card.dataset.type === type) ? '' : 'none';
+            });
+        }
+
+        // Lightbox
+        const resLightbox = document.getElementById('res-lightbox');
+        function openResLightbox(src, caption) {
+            document.getElementById('res-lightbox-img').src = src;
+            document.getElementById('res-lightbox-caption').innerText = caption;
+            resLightbox.style.display = 'flex';
+            document.body.style.overflow = 'hidden';
+        }
+        function closeResLightbox() {
+            resLightbox.style.display = 'none';
+            document.body.style.overflow = 'auto';
+        }
+        document.addEventListener('keydown', e => { if(e.key === 'Escape') closeResLightbox(); });
+    </script>
 </body>
 </html>
