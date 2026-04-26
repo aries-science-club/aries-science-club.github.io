@@ -945,3 +945,44 @@ h2 {
         font-size: 0.95rem;
     }
 }
+
+/* --- MARKDOWN TABLES --- */
+table {
+    width: 100%;
+    max-width: 600px; /* Keeps the table from looking stretched on wide screens */
+    border-collapse: collapse;
+    margin: 25px 0;
+    background: rgba(255, 255, 255, 0.02);
+    border-radius: 12px;
+    border: 1px solid rgba(255, 255, 255, 0.08);
+    overflow: hidden; /* Keeps the rounded corners crisp */
+}
+
+th, td {
+    padding: 15px 20px;
+    text-align: left;
+    border-bottom: 1px solid rgba(255, 255, 255, 0.05);
+}
+
+th {
+    background: rgba(255, 255, 255, 0.05);
+    color: white;
+    font-weight: bold;
+    text-transform: uppercase;
+    font-size: 0.9rem;
+    letter-spacing: 1px;
+}
+
+td {
+    color: #cbd5e1;
+}
+
+/* Remove the border from the very bottom row */
+tr:last-child td {
+    border-bottom: none;
+}
+
+/* Subtle highlight when hovering over a row */
+tr:hover td {
+    background: rgba(225, 29, 72, 0.05); /* Very faint primary color glow */
+}
