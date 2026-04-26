@@ -37,8 +37,8 @@
 
     <section style="padding-top: 20px; max-width: 1200px; margin: 0 auto;">
 
-        {{/* Cover image — shown when cover_image is set; title from cover_image_title front-matter */}}
-        {{ if .Params.cover_image }}
+        {{/* Cover image — shown when cover_image is set AND show_cover_on_page is not false */}}
+        {{ if and .Params.cover_image (ne .Params.show_cover_on_page false) }}
         <div style="width: 100%; height: 350px; border-radius: 20px; overflow: hidden; margin-bottom: 40px; box-shadow: 0 10px 30px rgba(0,0,0,0.5);" data-aos="fade-up">
             <img src="{{ .Params.cover_image }}" alt="{{ default .Title .Params.cover_image_title }}"
                  style="width: 100%; height: 100%; object-fit: cover; cursor: pointer;"
