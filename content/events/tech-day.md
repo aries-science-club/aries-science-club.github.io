@@ -20,10 +20,9 @@ Join us for an engaging session hosted by the **ARIES Science Club**, focusing o
 ### **Event Schedule**
 * **02:30 PM:** **Event Commencement**
 * **Technical Talks:** Insights from **ARIES Engineers** on *Electronics and Optics* in the context of telescope instrumentation and control systems.
-* **Poster Presentation:** A display of ongoing research and innovative projects.
+* **Poster Presentation:** Technological advancements in space science, space missions, Astrophysics and Atmospheric sciences.
 * **Science Quiz:** A competitive round testing your knowledge of astrophysics and engineering.
-* **Flash Talks:** Exclusive short presentations delivered by the **winners of the Poster Presentation**.
-* **04:00 PM:** **High Tea & Snacks** – A networking session for all participants.
+* **04:15 PM:** **High Tea & Snacks** – A networking session for all participants.
 
 ---
 
@@ -32,13 +31,14 @@ We are excited to announce cash prizes for the top performers in both the **Post
 
 | Position | Prize Amount |
 | :--- | :--- |
-| **1st Place** | **₹1,000** |
-| **2nd Place** | **₹500** |
-| **3rd Place** | **₹250** |
+| **1st Place** | **₹1,500** |
+| **2nd Place** | **₹1,000** |
+| **3rd Place** | **₹500** |
 
 ---
 
 **Location:** ARIES Main Auditorium  
-**Prerequisites:** All students and researchers are encouraged to participate. *Winners of the poster session should be prepared to deliver a brief flash talk following the announcement.*
+
+**Note:** *All students and researchers are encouraged to participate and make the event engaging and successful.* 
 
 > *“Innovation in science is driven by the precision of engineering.”*

@@ -5,7 +5,7 @@ group: "Creative Team"
 image: "/images/team/aditi.png"
 email: ""
 linkedin: ""
-instagram: "https://instagram.com/aditii.s"
+instagram: "https://instagram.com/_aditii.s_"
 hobbies:
   - "Reading"
   - "Writing"
