@@ -7,7 +7,7 @@ cover_image: "https://plus.unsplash.com/premium_photo-1764702405355-db2070252507
 cover_image_title: "World Health Day '26"
 show_cover_on_page: false 
 summary: "The annual celebration featuring guest lectures."
-video_url: "https://www.youtube.com/embed/lILgstYoNV4"  # ← add this
+video_url: "https://www.youtube.com/embed/BtAq7cWkQXw"  # ← add this
 images:
   - "/images/worldhealthday/w_1.png"
   - "/images/worldhealthday/w_2.png"
