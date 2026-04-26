@@ -891,7 +891,8 @@ h2 {
     }
     .avatar {
         width: 110px;
-        height: 110px;
+        height: 147px; /* 3:4 ratio — 110 * (4/3) = 147px */
+        border-radius: 12px; /* Keep the card corners */
         border-width: 0;
     }
     .member-profile h4 {

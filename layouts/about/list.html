@@ -112,5 +112,44 @@
     <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
     <script>AOS.init();</script>
     <script src="/js/main.js"></script>
+
+    <script>
+        /**
+         * Scroll the target team-member card to the visual centre of the viewport.
+         * Works on mobile, tablet, and desktop.
+         * Triggered when the page is loaded with a URL hash, e.g. /about/#anshika
+         */
+        function scrollHashCardToCenter() {
+            const hash = window.location.hash; // e.g. "#anshika"
+            if (!hash) return;
+
+            const target = document.querySelector(hash);
+            if (!target) return;
+
+            // Use requestAnimationFrame to wait for layout to settle after AOS init
+            requestAnimationFrame(function () {
+                requestAnimationFrame(function () {
+                    const cardRect   = target.getBoundingClientRect();
+                    const cardCenter = cardRect.top + window.scrollY + cardRect.height / 2;
+                    const viewCenter = window.innerHeight / 2;
+                    const scrollTo   = cardCenter - viewCenter;
+
+                    window.scrollTo({
+                        top: Math.max(0, scrollTo),
+                        behavior: "smooth"
+                    });
+                });
+            });
+        }
+
+        // Run on initial load
+        window.addEventListener("load", scrollHashCardToCenter);
+
+        // Also handle in-page hash changes (e.g. back/forward navigation)
+        window.addEventListener("hashchange", function () {
+            // Small delay so the browser doesn't fight our scroll
+            setTimeout(scrollHashCardToCenter, 50);
+        });
+    </script>
 </body>
 </html>

@@ -1,7 +1,7 @@
 ---
 title: "Preeti"
 role: "Member"
-group: "Research Scholars"
+group: "Creative Team"
 image: "/images/team/preeti.jpg"
 instagram: "https://instagram.com"
 hobbies:
