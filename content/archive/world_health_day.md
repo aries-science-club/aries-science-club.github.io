@@ -4,6 +4,8 @@ date: 2026-04-07
 author: "Aniruddh"
 draft: false
 cover_image: "https://plus.unsplash.com/premium_photo-1764702405355-db2070252507?q=80&w=1632&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D"
+cover_image_title: "World Health Day '26"
+show_cover_on_page: false 
 summary: "The annual celebration featuring guest lectures."
 video_url: "https://www.youtube.com/embed/lILgstYoNV4"  # ← add this
 images:

@@ -2,8 +2,9 @@
 title: "AcSIR Foundation Day '26"
 date: 2026-04-06
 #author: "Aniruddh"
-#cover_image: "/images/foundationday/f_1.jpg"
-#cover_image_title: "AcSIR Foundation Day '26"
+cover_image: "/images/foundationday/f_1.jpg"
+cover_image_title: "AcSIR Foundation Day '26"
+show_cover_on_page: false
 summary: "The annual celebration of the AcSIR foundation featuring guest lectures and networking."
 images: 
   - "/images/foundationday/f_1.jpg"
