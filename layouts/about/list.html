@@ -129,10 +129,13 @@
             // Use requestAnimationFrame to wait for layout to settle after AOS init
             requestAnimationFrame(function () {
                 requestAnimationFrame(function () {
-                    const cardRect   = target.getBoundingClientRect();
-                    const cardCenter = cardRect.top + window.scrollY + cardRect.height / 2;
-                    const viewCenter = window.innerHeight / 2;
-                    const scrollTo   = cardCenter - viewCenter;
+                    const cardRect      = target.getBoundingClientRect();
+                    const cardCenter    = cardRect.top + window.scrollY + cardRect.height / 2;
+                    // Account for the fixed navbar so the card isn't hidden behind it.
+                    // Center within the *usable* visible area (below the navbar).
+                    const navbarHeight  = document.querySelector('.navbar')?.offsetHeight || 0;
+                    const usableCenter  = navbarHeight + (window.innerHeight - navbarHeight) / 2;
+                    const scrollTo      = cardCenter - usableCenter;
 
                     window.scrollTo({
                         top: Math.max(0, scrollTo),
