@@ -24,21 +24,21 @@ Join us for an engaging session hosted by the **ARIES Science Club**, focusing o
 ### **Event Schedule**
 * **02:30 PM:** **Event Commencement**
 * **Technical Talks:** Insights from **ARIES Engineers** on *Electronics and Optics* in the context of telescope instrumentation and control systems.
-* **Poster Presentation:** Technological advancements in space science, space missions, Astrophysics and Atmospheric sciences.
 * **Science Quiz:** A competitive round testing your knowledge of astrophysics and engineering.
+* **Debate Competition:** A Debate competition among the four teams shortlisted from quiz.
 * **04:15 PM:** **High Tea & Snacks** – A networking session for all participants.
 
 ---
 
 ### **Prizes & Awards**
-We are excited to announce cash prizes for the top performers in both the **Poster Presentation** and the **Science Quiz**:
+We are excited to announce cash prizes for the top performers in the **Debate Competition**.
 
 | Position | Prize Amount |
 | :--- | :--- |
-| **1st Place** | **₹1,500** |
-| **2nd Place** | **₹1,000** |
-| **3rd Place** | **₹500** |
-
+| **1st Place** | **₹2,000** |
+| **2nd Place** | **₹1,500** |
+| **3rd Place** | **₹1,000** |
+| **4th Place** | **₹750** |
 ---
 
 **Location:** ARIES Main Auditorium  

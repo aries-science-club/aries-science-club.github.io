@@ -7,8 +7,9 @@ email: "preeti@aries.res.in"
 linkedin: "https://www.linkedin.com/in/preeti-rao-4368301bb"
 instagram: "https://instagram.com/preeti_rao_3917"
 hobbies:
-  - "Dancing"
-
+  - "Reading scientific articles"
+  - "Stargazing"
+  - "Playing sports"
 group_weight: 60
 weight: 7
 ---
