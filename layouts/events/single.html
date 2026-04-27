@@ -36,17 +36,19 @@
     </div>
 
     <section style="padding-top: 20px; max-width: 1200px; margin: 0 auto; display: block;" data-aos="fade-up">
-        
-        {{ if .Params.cover_image }}
-        <div style="width: 100%; height: 350px; border-radius: 20px; overflow: hidden; margin-bottom: 40px; box-shadow: 0 10px 30px rgba(0,0,0,0.5);">
-            <img src="{{ .Params.cover_image }}" alt="{{ default .Title .Params.cover_image_title }}" style="width: 100%; height: 100%; object-fit: cover; cursor: pointer;" onclick="openLightbox('{{ .Params.cover_image }}', '{{ default .Title .Params.cover_image_title }}', event)" />
-        </div>
-        {{ end }}
 
         <h1 style="font-size: 3rem; margin-bottom: 5px;">{{ .Title }}</h1>
         <h3 style="color: var(--primary); margin-top: 0; margin-bottom: 30px;">
             📅 {{ .Date.Format "Monday, January 2, 2006" }}
         </h3>
+
+        {{ if .Params.registration_link }}
+        <div style="margin-bottom: 40px;">
+            <a href="{{ .Params.registration_link }}" target="_blank" rel="noopener noreferrer" class="markdown-register-btn">
+                {{ default "Register Here" .Params.registration_title }}
+            </a>
+        </div>
+        {{ end }}
 
         <div style="color: #cbd5e1; line-height: 1.8; font-size: 1.1rem; background: rgba(255,255,255,0.03); padding: 40px; border-radius: 15px; border: 1px solid rgba(255,255,255,0.05);">
             {{ .Content }}

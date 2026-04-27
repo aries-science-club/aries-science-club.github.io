@@ -133,10 +133,10 @@
         const clubEvents = [
             {{ range (where site.RegularPages "Section" "in" (slice "events" "archive")) }}
             {
-                title: "{{ .Title }}",
-                date: "{{ .Date.Format "2006-01-02" }}", // Standard YYYY-MM-DD
+                title: {{ .Title | jsonify }},
+                date: "{{ .Date.Format `2006-01-02` }}", // Changed to backticks!
                 url: "{{ .RelPermalink }}",
-                summary: "{{ .Summary | plainify | truncate 100 }}"
+                summary: {{ .Summary | plainify | truncate 100 | jsonify }}
             },
             {{ end }}
         ];
@@ -212,7 +212,7 @@
         <!-- Swipeable member carousel — cards auto-generated from data/team.yml -->
         <div class="swiper membersSwiper" data-aos="fade-up" data-aos-delay="100">
             <div class="swiper-wrapper">
-                {{ range sort (where site.RegularPages "Section" "team") "Params.weight" }}
+                {{ range sort (where site.RegularPages "Section" "team") "Params.weight" "asc" }}
                 <div class="swiper-slide">
                     <a href="/about/#{{ .Title | urlize }}" style="text-decoration: none; color: inherit; display: block; height: 100%;">
                         <div class="member-profile">

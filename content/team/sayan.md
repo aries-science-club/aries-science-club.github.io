@@ -10,6 +10,7 @@ hobbies:
   - "Watching Movies"
   - "Cosmology"
   - "Literature"
-weight: 50
+group_weight: 50
+weight: 13
 ---
 I am Sayan Karmakar, a research scholar at ARIES in the Galactic Astronomy division. My research area lies in understanding of star-formation, role of radiative feedback.

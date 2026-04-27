@@ -53,11 +53,37 @@
                  is all you ever need to do. Members are sorted by weight within
                  each group, and groups are sorted alphabetically. */}}
             {{ $teamPages := where site.RegularPages "Section" "team" }}
+
+            {{/* 1. Create an empty list to hold our custom groups */}}
+            {{ $customGroups := slice }}
+
+            {{/* 2. Group the pages, then calculate the custom sorting weight */}}
             {{ range ($teamPages.GroupByParam "group") }}
-            <h2 style="border-bottom: 2px solid #334155; padding-bottom: 10px; margin-top: 60px; color: #f8fafc;">{{ .Key }}</h2>
+                {{ $groupName := .Key }}
+                {{ $pagesInGroup := .Pages }}
+
+                {{/* Find the lowest group_weight among members of this group (defaults to 999 if empty) */}}
+                {{ $gWeight := 999 }}
+                {{ range $pagesInGroup }}
+                    {{ if .Params.group_weight }}
+                        {{ if lt .Params.group_weight $gWeight }}
+                            {{ $gWeight = .Params.group_weight }}
+                        {{ end }}
+                    {{ end }}
+                {{ end }}
+
+                {{/* Save this group to our list as a Dictionary */}}
+                {{ $customGroups = $customGroups | append (dict "name" $groupName "pages" $pagesInGroup "weight" $gWeight) }}
+            {{ end }}
+
+            {{/* 3. Loop through the groups, sorted by the group_weight */}}
+            {{ range sort $customGroups "weight" "asc" }}
+            <h2 style="border-bottom: 2px solid #334155; padding-bottom: 10px; margin-top: 60px; color: #f8fafc;">{{ .name }}</h2>
 
                 <div class="detailed-team-list">
-                {{ range sort .Pages "Params.weight" }}
+                {{/* 4. Loop through the members, sorted by their individual weight */}}
+                {{ range sort .pages "Params.weight" "asc" }}
+                
                 <div class="profile-card" id="{{ .Title | urlize }}">
 
                     <div class="profile-sidebar">

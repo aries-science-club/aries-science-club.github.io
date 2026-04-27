@@ -986,3 +986,25 @@ tr:last-child td {
 tr:hover td {
     background: rgba(225, 29, 72, 0.05); /* Very faint primary color glow */
 }
+
+/* --- MARKDOWN REGISTRATION BUTTON --- */
+.markdown-register-btn {
+    display: inline-block;
+    background: var(--primary, #e11d48); 
+    color: white !important; 
+    padding: 14px 35px;
+    font-size: 1.15rem;
+    font-weight: bold;
+    border-radius: 30px;
+    text-decoration: none !important;
+    box-shadow: 0 5px 20px rgba(225, 29, 72, 0.4);
+    transition: transform 0.3s ease, box-shadow 0.3s ease, background 0.3s ease;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+}
+
+.markdown-register-btn:hover {
+    transform: translateY(-4px);
+    box-shadow: 0 8px 25px rgba(225, 29, 72, 0.6);
+    background: #be123c; 
+}

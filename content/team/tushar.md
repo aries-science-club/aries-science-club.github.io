@@ -11,6 +11,7 @@ hobbies:
   - "Playing chess"
   - "Cricket"
   - "Traveling"
-weight: 50
+group_weight: 40
+weight: 11
 ---
 Hi, I am a research scholar at ARIES, Nainital, working on star formation. My research focuses on multiscale processes in star-forming regions, including fragmentation, filamentary structures, and cloud dynamics. I am also interested in planet formation and actively involved in science communication and outreach.

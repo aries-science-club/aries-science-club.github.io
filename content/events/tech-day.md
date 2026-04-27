@@ -6,6 +6,10 @@ cover_image_title: "National Technology Day"
 images: 
   - "/images/national_technology_day/tech_day_poster.png"
 summary: "Engineering and Science Symposium."
+
+# --- NEW REGISTRATION VARIABLES ---
+registration_link: "https://forms.google.com/your-form-id"
+registration_title: "Register for Symposium"
 ---
 
 # ARIES Science Club
