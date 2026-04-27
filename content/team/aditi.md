@@ -3,7 +3,7 @@ title: "Aditi Sharma"
 role: "Member"
 group: "Creative Team"
 image: "/images/team/aditi.png"
-email: ""
+email: "aditi.sharma@aries.res.in"
 linkedin: ""
 instagram: "https://instagram.com/_aditii.s_"
 hobbies:
