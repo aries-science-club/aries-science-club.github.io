@@ -1,26 +1,58 @@
 <footer class="site-footer">
     <div class="footer-content">
-
-        <!-- Left column: address & email -->
-        <div class="footer-section">
-            <h3>Contact Information</h3>
-            <p>Aryabhatta Research Institute of Observational Sciences (ARIES)</p>
-            <p>Manora Peak, Nainital, Uttarakhand 263001</p>
-            <br />
-            <p>Email:science.club@aries.res.in</p>   <!-- ✏️ Update email -->
+        
+        <!-- Left column: Logo, Title & Contact Info -->
+        <div class="footer-section brand-contact-section">
+            <div class="footer-brand" style="display: flex; align-items: center; gap: 12px; margin-bottom: 25px;">
+                <img src="/images/Logo/logo.png" alt="ARIES Logo" style="height: 45px; width: 45px; border-radius: 50%; object-fit: cover;">
+                <h3 style="margin: 0; font-size: 1.4rem; color: white;">ARIES Science Club</h3>
+            </div>
+            
+            <div class="contact-info">
+                <div class="contact-item">
+                    <svg viewBox="0 0 24 24"><path d="M12 2C8.13 2 5 5.13 5 9c0 5.25 7 13 7 13s7-7.75 7-13c0-3.87-3.13-7-7-7zm0 9.5c-1.38 0-2.5-1.12-2.5-2.5s1.12-2.5 2.5-2.5 2.5 1.12 2.5 2.5-1.12 2.5-2.5 2.5z"/></svg>
+                    <div>
+                        <p>Aryabhatta Research Institute of Observational Sciences (ARIES)</p>
+                        <p>Manora Peak, Nainital, Uttarakhand 263001</p>
+                    </div>
+                </div>
+                <div class="contact-item">
+                    <svg viewBox="0 0 24 24"><path d="M20 4H4c-1.1 0-1.99.9-1.99 2L2 18c0 1.1.9 2 2 2h16c1.1 0 2-.9 2-2V6c0-1.1-.9-2-2-2zm0 4l-8 5-8-5V6l8 5 8-5v2z"/></svg>
+                    <a href="mailto:science.club@aries.res.in">science.club@aries.res.in</a>
+                </div>
+            </div>
         </div>
 
-        <!-- Right column: links to social & affiliate sites -->
-        <div class="footer-section">
-            <h3>Affiliations & Socials</h3>
+        <!-- Right column: Affiliations & Socials -->
+        <div class="footer-section links-section">
+            <h3 class="footer-heading">Affiliations & Socials</h3>
             <ul class="footer-links">
-                <li><a href="https://www.aries.res.in/" target="_blank">ARIES Official Website ↗</a></li>
-                <li><a href="https://acsir.res.in/" target="_blank">AcSIR Official Website ↗</a></li>
-                <li><a href="https://www.linkedin.com/company/aries-science-club">LinkedIn</a></li>
-                <li><a href="https://www.instagram.com/aries_scienceclub/">Instagram</a></li> 
-                <li><a href="https://www.youtube.com/@ariesscienceclub">YouTube Channel</a></li> 
+                <li><a href="https://www.aries.res.in/" target="_blank">
+                    <svg viewBox="0 0 24 24"><path d="M19 19H5V5h7V3H5c-1.11 0-2 .9-2 2v14c0 1.1.89 2 2 2h14c1.1 0 2-.9 2-2v-7h-2v7zM14 3v2h3.59l-9.83 9.83 1.41 1.41L19 6.41V10h2V3h-7z"/></svg>
+                    ARIES Official Website
+                </a></li>
+                <li><a href="https://acsir.res.in/" target="_blank">
+                    <svg viewBox="0 0 24 24"><path d="M19 19H5V5h7V3H5c-1.11 0-2 .9-2 2v14c0 1.1.89 2 2 2h14c1.1 0 2-.9 2-2v-7h-2v7zM14 3v2h3.59l-9.83 9.83 1.41 1.41L19 6.41V10h2V3h-7z"/></svg>
+                    AcSIR Official Website
+                </a></li>
             </ul>
+            
+            <div class="footer-socials">
+                <a href="https://www.linkedin.com/company/aries-science-club" target="_blank" title="LinkedIn">
+                    <svg viewBox="0 0 24 24"><path d="M19 3a2 2 0 0 1 2 2v14a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2h14m-.5 15.5v-5.3a3.26 3.26 0 0 0-3.26-3.26c-1.85 0-2.58 1-3 1.66v-1.42h-2.6v9.32h2.6v-4.7c0-1.25.24-2.46 1.8-2.46 1.54 0 1.56 1.43 1.56 2.54v4.62h2.6M7.6 18.5V9.18H5v9.32h2.6M6.3 8.08a1.5 1.5 0 0 0 1.5-1.5A1.5 1.5 0 0 0 6.3 5 1.5 1.5 0 0 0 4.8 6.58a1.5 1.5 0 0 0 1.5 1.5z"/></svg>
+                </a>
+                <a href="https://www.instagram.com/aries_scienceclub/" target="_blank" title="Instagram">
+                    <svg viewBox="0 0 24 24"><path d="M7.8 2h8.4C19.4 2 22 4.6 22 7.8v8.4a5.8 5.8 0 0 1-5.8 5.8H7.8C4.6 22 2 19.4 2 16.2V7.8A5.8 5.8 0 0 1 7.8 2m-.2 2A3.6 3.6 0 0 0 4 7.6v8.8C4 18.39 5.61 20 7.6 20h8.8a3.6 3.6 0 0 0 3.6-3.6V7.6C20 5.61 18.39 4 16.4 4H7.6m9.65 1.5a1.25 1.25 0 0 1 1.25 1.25A1.25 1.25 0 0 1 17.25 8 1.25 1.25 0 0 1 16 6.75a1.25 1.25 0 0 1 1.25-1.25M12 7a5 5 0 0 1 5 5 5 5 0 0 1-5 5 5 5 0 0 1-5-5 5 5 0 0 1 5-5m0 2a3 3 0 0 0-3 3 3 3 0 0 0 3 3 3 3 0 0 0 3-3 3 3 0 0 0-3-3z"/></svg>
+                </a>
+                <a href="https://www.youtube.com/@ariesscienceclub" target="_blank" title="YouTube">
+                    <svg viewBox="0 0 24 24"><path d="M21.58 7.19c-.23-.86-.91-1.54-1.77-1.77C18.25 5 12 5 12 5s-6.25 0-7.81.42c-.86.23-1.54.91-1.77 1.77C2 8.75 2 12 2 12s0 3.25.42 4.81c.23.86.91 1.54 1.77 1.77C5.75 19 12 19 12 19s6.25 0 7.81-.42c.86-.23 1.54-.91 1.77-1.77C22 15.25 22 12 22 12s0-3.25-.42-4.81zM10 15V9l5.2 3-5.2 3z"/></svg>
+                </a>
+            </div>
         </div>
 
+    </div>
+    
+    <div class="footer-bottom">
+        <p>&copy; {{ now.Year }} ARIES Science Club. All rights reserved.</p>
     </div>
 </footer>
