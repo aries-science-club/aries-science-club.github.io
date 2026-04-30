@@ -1,3 +1,6 @@
+<!-- Favicon -->
+<link rel="icon" type="image/png" href="/images/Logo/logo.png" />
+
 <!-- Open Graph / Social Media Meta Tags -->
 {{ $title := "ARIES & AcSIR Science Club" }}
 {{ if not .IsHome }}
@@ -6,7 +9,7 @@
 
 {{ $description := .Summary | default .Description | default "The ARIES Science Club is a joint initiative of ARIES and AcSIR for students to share ideas about science, culture, history, and its relation to society." | plainify | truncate 200 }}
 
-{{ $image := .Params.cover_image | default .Params.image | default "/images/Logo/logo.png" }}
+{{ $image := .Params.cover_image | default .Params.image | default "/images/og-image.png" }}
 
 <meta property="og:title" content="{{ $title }}" />
 <meta property="og:description" content="{{ $description }}" />
