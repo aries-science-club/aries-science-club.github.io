@@ -2,9 +2,9 @@
 <link rel="icon" type="image/png" href="/images/Logo/logo.png" />
 
 <!-- Open Graph / Social Media Meta Tags -->
-{{ $title := "ARIES & AcSIR Science Club" }}
+{{ $title := "ARIES Science Club" }}
 {{ if not .IsHome }}
-    {{ $title = printf "%s | ARIES & AcSIR Science Club" .Title }}
+    {{ $title = printf "%s | ARIES Science Club" .Title }}
 {{ end }}
 
 {{ $description := .Summary | default .Description | default "The ARIES Science Club is a joint initiative of ARIES and AcSIR for students to share ideas about science, culture, history, and its relation to society." | plainify | truncate 200 }}
