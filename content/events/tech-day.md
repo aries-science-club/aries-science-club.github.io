@@ -9,7 +9,7 @@ summary: "Illuminating Science Through Technology."
 
 # --- NEW REGISTRATION VARIABLES ---
 registration_link: "https://forms.gle/your-form-id"
-registration_title: "Register for Symposium"
+registration_title: "Register for the Event"
 ---
 
 # ARIES Science Club
