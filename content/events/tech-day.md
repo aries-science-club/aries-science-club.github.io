@@ -5,10 +5,10 @@ cover_image: "https://images.unsplash.com/photo-1451187580459-43490279c0fa?q=80&
 cover_image_title: "National Technology Day"
 images: 
   - "/images/national_technology_day/tech_day_poster.png"
-summary: "Engineering and Science Symposium."
+summary: "Illuminating Science Through Technology."
 
 # --- NEW REGISTRATION VARIABLES ---
-registration_link: "https://forms.google.com/your-form-id"
+registration_link: "https://forms.gle/your-form-id"
 registration_title: "Register for Symposium"
 ---
 
@@ -17,32 +17,33 @@ registration_title: "Register for Symposium"
 
 ---
 
-# Engineering and Science Symposium
+# Illuminating Science Through Technology
 
-Join us for an engaging session hosted by the **ARIES Science Club**, focusing on the intersection of advanced engineering and observational astronomy. This event will delve into the technical backbone of our observatories and showcase the research work of our scholars.
+As part of the AcSIR Science Club at ARIES, a series of programs will be organized to celebrate National Technology Day on 11 May 2026. The event will include talks highlighting the integration of technology in Astrophysics and Atmospheric Sciences at ARIES
 
 ### **Event Schedule**
 * **02:30 PM:** **Event Commencement**
-* **Technical Talks:** Insights from **ARIES Engineers** on *Electronics and Optics* in the context of telescope instrumentation and control systems.
-* **Science Quiz:** A competitive round testing your knowledge of astrophysics and engineering.
-* **Debate Competition:** A Debate competition among the four teams shortlisted from quiz.
-* **04:15 PM:** **High Tea & Snacks** – A networking session for all participants.
+* **Technical Talks:** Insights from **ARIES Engineers** on the integration of technology in Astrophysics and Atmospheric Sciences at ARIES.
+* **Science Quiz:** The quiz competition will be conducted as an individual event, testing your knowledge in space science and technology.
+* **Flash Talk/Speech:** The speech will be conducted in a flash format and will focus on general topics, related to technological advancements in Astrophysics and Atmospheric Sciences, including, for example, space science, space missions, and Astrophysics and Atmospheric science related instruments. The topics will be announced on the spot.
+* **04:15 PM:** **High Tea & Snacks** .
 
 ---
 
 ### **Prizes & Awards**
-We are excited to announce cash prizes for the top performers in the **Debate Competition**.
+We are excited to announce cash prizes for the top performers in the **Science Quiz** and **Flash Talk/Speech**.
 
 | Position | Prize Amount |
 | :--- | :--- |
-| **1st Place** | **₹2,000** |
-| **2nd Place** | **₹1,500** |
-| **3rd Place** | **₹1,000** |
-| **4th Place** | **₹750** |
----
+| **1st Place** | **₹1,000** |
+| **2nd Place** | **₹750** |
+| **3rd Place** | **₹500** |
 
 **Location:** ARIES Main Auditorium  
 
-**Note:** *All students and researchers are encouraged to participate and make the event engaging and successful.* 
+You can Register for the event from the registration button above ( wiil be updated soon).
+
+
+**Note:** *Details of talks, quiz and speech sessions will be announced later. We encourage everyone to motivate each other and participate in the event for its success..* 
 
 > *“Innovation in science is driven by the precision of engineering.”*
