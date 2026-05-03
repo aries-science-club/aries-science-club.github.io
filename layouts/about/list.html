@@ -149,7 +149,9 @@
             const hash = window.location.hash;   // e.g. "#anshika"
             if (!hash) return;
 
-            const target = document.querySelector(hash);
+            const id = hash.substring(1);
+            // using getElementById instead of querySelector to avoid errors with special characters like '.' in the ID
+            const target = document.getElementById(id);
             if (!target) return;
 
             setTimeout(function () {
