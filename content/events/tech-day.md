@@ -8,7 +8,7 @@ images:
 summary: "Illuminating Science Through Technology."
 
 # --- NEW REGISTRATION VARIABLES ---
-registration_link: "https://forms.gle/your-form-id"
+registration_link: "https://docs.google.com/forms/d/e/1FAIpQLSfZOarV9mJOOl99Zu6JVW57-TZYoGPSjRylWmgTzyaZ8SmZWw/viewform"
 registration_title: "Register for the Event"
 ---
 
@@ -41,7 +41,7 @@ We are excited to announce cash prizes for the top performers in the **Science Q
 
 **Location:** ARIES Main Auditorium  
 
-You can Register for the event from the registration button above ( wiil be updated soon).
+You can Register for the event from the registration button above.
 
 
 **Note:** *Details of talks, quiz and speech sessions will be announced later. We encourage everyone to motivate each other and participate in the event for its success..* 
