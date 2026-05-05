@@ -2,3 +2,6 @@ baseURL = "https://aries-science-club.github.io/"
 title = "ARIES Science Club"
 locale = 'en-us'
 buildFuture = true
+
+[services.googleAnalytics]
+  ID = "G-SKW9B7SC3Y"
