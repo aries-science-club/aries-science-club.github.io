@@ -140,8 +140,9 @@
             {{ range (where site.RegularPages "Section" "in" (slice "events" "archive")) }}
             {
                 title: {{ .Title | jsonify }},
-                date: "{{ .Date.Format `2006-01-02` }}", // Changed to backticks!
+                date: "{{ .Date.Format `2006-01-02` }}",
                 url: "{{ .RelPermalink }}",
+                section: "{{ .Section }}",
                 summary: {{ .Summary | plainify | truncate 100 | jsonify }}
             },
             {{ end }}
@@ -291,8 +292,9 @@
                     // Format current day to YYYY-MM-DD to match Hugo data
                     const dayString = `${year}-${String(month + 1).padStart(2, '0')}-${String(i).padStart(2, '0')}`;
                     
-                    // Check if this day matches any event in our Hugo array
-                    const eventOnThisDay = clubEvents.find(e => e.date === dayString);
+                    // Check if this day matches any event — prefer archive over events
+                    const eventsOnThisDay = clubEvents.filter(e => e.date === dayString);
+                    const eventOnThisDay = eventsOnThisDay.find(e => e.section === 'archive') || eventsOnThisDay[0];
                     
                     if (eventOnThisDay) {
                         dayDiv.classList.add('has-event');
