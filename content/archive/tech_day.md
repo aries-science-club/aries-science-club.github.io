@@ -10,7 +10,7 @@ summary: "Illuminating Science Through Technology."
 images:
   - "/images/technologyday/tch_poster.jpg"
   - "/images/technologyday/tch_inauguration.jpg"
-  - "/images/technologyday/tch_talk.jpg"
+  - "/images/technologyday/tch_talks.jpg"
   - "/images/technologyday/tch_audience.jpg"
   - "/images/technologyday/tch_award.jpg"
   - "/images/technologyday/tch_club.jpg"
