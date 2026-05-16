@@ -679,14 +679,24 @@ h2 {
 }
 
 .hero-main-logo {
-    width: 160px;
-    height: 160px;
-    object-fit: contain; /* Ensures the whole logo fits without cropping */
+    width: 220px;
+    height: 220px;
+    object-fit: contain;
     margin-top: 25px;
     margin-bottom: 0px;
-    /* Optional: If the logo background is transparent, we don't need borders/shadows here, 
-       but if you want the glow, keep the box-shadow! */
-    filter: drop-shadow(0 0 20px rgba(225, 29, 72, 0.2)); 
+    filter: drop-shadow(0 0 25px rgba(225, 29, 72, 0.25));
+    transition: transform 0.3s ease;
+}
+
+.hero-main-logo:hover {
+    transform: scale(1.05);
+}
+
+@media (max-width: 768px) {
+    .hero-main-logo {
+        width: 160px;
+        height: 160px;
+    }
 }
 .hero-info-card {
     background: rgba(15, 23, 42, 0.85);
