@@ -86,8 +86,43 @@
 
 
 # --- National Technology Day 2026 ---
-- image: "/images/national_technology_day/tech_day_poster.png"
+- image: "/images/technologyday/tch_poster.jpg"
   title: "National Technology Day Poster"
+  year: "2026"
+  month: "May"
+  event: "National Technology Day"
+  tags: ["technology", "2026", "May"]
+
+- image: "/images/technologyday/tch_inauguration.jpg"
+  title: "National Technology Day Inauguration"
+  year: "2026"
+  month: "May"
+  event: "National Technology Day"
+  tags: ["technology", "2026", "May"]
+
+- image: "/images/technologyday/tch_talk.jpg"
+  title: "National Technology Day Talk"
+  year: "2026"
+  month: "May"
+  event: "National Technology Day"
+  tags: ["technology", "2026", "May"]
+
+- image: "/images/technologyday/tch_audience.jpg"
+  title: "National Technology Day Audience"
+  year: "2026"
+  month: "May"
+  event: "National Technology Day"
+  tags: ["technology", "2026", "May"]
+
+- image: "/images/technologyday/tch_award.jpg"
+  title: "National Technology Day Award"
+  year: "2026"
+  month: "May"
+  event: "National Technology Day"
+  tags: ["technology", "2026", "May"]
+
+- image: "/images/technologyday/tch_club.jpg"
+  title: "AcSIR-ARIES Science Club Team"
   year: "2026"
   month: "May"
   event: "National Technology Day"

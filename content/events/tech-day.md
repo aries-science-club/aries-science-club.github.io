@@ -10,6 +10,7 @@ summary: "Illuminating Science Through Technology."
 # --- NEW REGISTRATION VARIABLES ---
 registration_link: "https://docs.google.com/forms/d/e/1FAIpQLSfZOarV9mJOOl99Zu6JVW57-TZYoGPSjRylWmgTzyaZ8SmZWw/viewform"
 registration_title: "Register for the Event"
+hide_from_upcoming: true
 ---
 
 # ARIES Science Club
