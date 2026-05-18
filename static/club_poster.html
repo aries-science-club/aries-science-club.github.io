@@ -2,7 +2,7 @@
 <html lang="en">
 <head>
     <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="viewport" content="width=1080">
     <title>ARIES Science Club - Inspired Poster</title>
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
     <style>
@@ -22,13 +22,14 @@
             background: #000;
             display: flex;
             justify-content: center;
-            align-items: center;
             min-height: 100vh;
             padding: 20px;
+            margin: 0;
         }
 
-        /* Poster Canvas — exact 1080×1527 */
+        /* Poster Canvas — exact 1080×1620 */
         .poster-container {
+            margin: auto; /* Centers when it fits, scrolls normally when it overflows */
             width: 1080px;
             height: 1620px;
             background: url('/images/resources/clubposter_bkg.jpg') center/cover no-repeat;
