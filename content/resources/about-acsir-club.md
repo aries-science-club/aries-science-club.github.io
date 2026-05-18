@@ -2,6 +2,7 @@
 title: "About AcSIR Science Club — ARIES Chapter"
 date: 2026-04-26
 type: "pdf"
+tags: ["PDF"]
 description: "An introductory document about the ARIES / AcSIR Science Club — its vision, objectives, activities, and structure."
 file: "/pdfs/acsir_resources/AcSIR_Science_Club_poster.pdf"
 thumbnail: "/images/resources/AcSIR_Science_Club_poster.png"

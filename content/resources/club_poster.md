@@ -2,6 +2,7 @@
 title: "ARIES Science Club Poster"
 date: 2026-05-17
 type: "web"
+tags: ["Web"]
 description: "A webpage showcasing the complete team structure and members of the ARIES Science Club."
 file: "/club_poster.html"
 thumbnail: "/images/resources/club_poster.png"

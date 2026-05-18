@@ -228,10 +228,19 @@
 
         <!-- Filter tabs -->
         <div class="filter-tabs">
-            <button class="filter-tab active" onclick="filterResources('all', this)" id="tab-all">All</button>
-            <button class="filter-tab" onclick="filterResources('pdf', this)" id="tab-pdf">📄 PDFs</button>
-            <button class="filter-tab" onclick="filterResources('poster', this)" id="tab-poster">🖼️ Posters</button>
-            <button class="filter-tab" onclick="filterResources('photo', this)" id="tab-photo">📷 Photos</button>
+            <button class="filter-tab active" onclick="filterResources('all', this)">All</button>
+            {{ $tags := slice }}
+            {{ range .Pages }}
+                {{ with .Params.tags }}
+                    {{ range . }}
+                        {{ $tag := . | lower }}
+                        {{ if not (in $tags $tag) }}{{ $tags = $tags | append $tag }}{{ end }}
+                    {{ end }}
+                {{ end }}
+            {{ end }}
+            {{ range sort $tags }}
+                <button class="filter-tab" onclick="filterResources('{{ . }}', this)">#{{ . | title }}</button>
+            {{ end }}
         </div>
     </div>
 
@@ -239,7 +248,7 @@
     <div class="resources-grid" id="resources-grid">
         {{ range (where .Pages "Params.draft" "ne" true) }}
         {{ $type := lower (default "other" .Params.type) }}
-        <div class="resource-card" data-type="{{ $type }}" data-aos="fade-up">
+        <div class="resource-card" data-type="{{ $type }}" data-tags="{{ with .Params.tags }}{{ delimit . " " | lower }}{{ end }}" data-aos="fade-up">
             <div class="resource-thumb">
                 {{ if .Params.thumbnail }}
                     <img src="{{ .Params.thumbnail }}" alt="{{ .Title }}"
@@ -329,11 +338,12 @@
     <script src="/js/main.js"></script>
     <script>
         // Filter
-        function filterResources(type, btn) {
+        function filterResources(tag, btn) {
             document.querySelectorAll('.filter-tab').forEach(t => t.classList.remove('active'));
             btn.classList.add('active');
             document.querySelectorAll('.resource-card').forEach(card => {
-                card.style.display = (type === 'all' || card.dataset.type === type) ? '' : 'none';
+                const cardTags = card.dataset.tags ? card.dataset.tags.split(' ') : [];
+                card.style.display = (tag === 'all' || cardTags.includes(tag)) ? '' : 'none';
             });
         }
 
