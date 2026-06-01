@@ -10,7 +10,7 @@ summary: "Celebrating World Environment Day."
 # --- NEW REGISTRATION VARIABLES ---
 registration_link: "https://forms.gle/sUr3r2cXWVZHLzpo6"
 registration_title: "Register for the Event"
-hide_from_upcoming: true
+hide_from_upcoming: false
 ---
 
 # ARIES Science Club
