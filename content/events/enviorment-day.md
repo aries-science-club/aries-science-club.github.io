@@ -1,7 +1,7 @@
 ---
 title: "World Enviorment Day"
 date: 2026-06-05
-cover_image: "https://images.unsplash.com/photo-1719825523711-eda3221c111c?q=80&w=1032&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D"
+cover_image: "/images/enviormentday/environment day_landscape.jpg"
 cover_image_title: "World Enviorment Day"
 images: 
   - "/images/enviormentday/environment day_landscape.jpg"
