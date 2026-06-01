@@ -29,13 +29,13 @@ As part of the AcSIR Science Club at ARIES, a series of programs will be organiz
 
 ---
 
-# ARIES Photography Competition 2026: Environment Through the Camera Lens
+## ARIES Photography Competition 2026: Environment Through the Camera Lens
 
 Welcome to the ARIES Photography competition! We are inviting entries from Research Scholars, Post-Doctoral Fellows and Project Students to showcase their best captures under the theme:
 
 > **“Environment Through Camera Lens: Himalayas, Climate, and Community.”**
 
-## Submission Guidelines
+### Submission Guidelines
 
 * **Timeline:** Images must have been taken within the last year (2025 or 2026).
 * **Geography:** All photographs must have been clicked within Uttarakhand.
@@ -45,7 +45,7 @@ Welcome to the ARIES Photography competition! We are inviting entries from Resea
 * **Metadata:** Make sure your image file still has its EXIF data intact! We need this metadata to verify the date, location, and camera details.
 * **Eligibility:** Competition open only for PhD scholars, PDF and Project students.
 
-## The Creative Themes (Pick any vibe!)
+### The Creative Themes (Pick any vibe!)
 
 *(Not limited to these only)*
 
@@ -59,7 +59,7 @@ Welcome to the ARIES Photography competition! We are inviting entries from Resea
 > "Avoid generic macro shots of insects or standard landscape snaps. We are looking for creative compositions that show interaction, climate impact, or environmental context!"
 
 
-## You can Register for the Photography Competition from the registration button above.
+### You can Register for the Photography Competition from the registration button above.
 
 **Location:** ARIES Main Auditorium  
 
