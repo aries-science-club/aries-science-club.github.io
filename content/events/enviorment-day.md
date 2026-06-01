@@ -25,11 +25,12 @@ As part of the AcSIR Science Club at ARIES, a series of programs will be organiz
 ### **Event Schedule**
 * **Cleaning Drive:** Cleaning Drive will be conducted in and around the ARIES campus.
 * **Tree Plantation:** Tree Plantation will be conducted in and around the ARIES campus.
-* **Photography Competition:** The competition will be conducted for, PhD scholars, PDFs and Project students of ARIES. The topics and guidelines are mentioned in photography competition section.
+* **Photography Competition:** The competition will be conducted for, PhD scholars, PDFs and Project students of ARIES. The topics and guidelines are mentioned in the photography competition section.
 
 ---
 
-## ARIES Photography Competition 2026: Environment Through the Camera Lens
+## ARIES Photography Competition 2026: 
+Environment Through the Camera Lens
 
 Welcome to the ARIES Photography competition! We are inviting entries from Research Scholars, Post-Doctoral Fellows and Project Students to showcase their best captures under the theme:
 
