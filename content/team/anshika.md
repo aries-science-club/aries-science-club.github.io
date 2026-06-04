@@ -2,7 +2,7 @@
 title: "Anshika Gupta"
 role: "Vice-President"
 group: "Core Team"
-image: "/images/team/Anshika Gupta.png"
+image: "/images/team/anshika.png"
 email: "Anshika Guptaguptaftp@gmail.com"
 linkedin: ""
 instagram: ""

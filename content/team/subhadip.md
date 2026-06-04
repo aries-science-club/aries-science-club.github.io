@@ -2,7 +2,7 @@
 title: "Subhadip Bhattacharjee"
 role: "Member"
 group: "Communication Team"
-image: "/images/team/Subhadip Bhattacharjee.png"
+image: "/images/team/subhadip.png"
 email: ""
 linkedin: ""
 instagram: "https://instagram.com/scoobydoo_m87"
