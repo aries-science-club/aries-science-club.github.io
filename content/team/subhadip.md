@@ -1,8 +1,8 @@
 ---
-title: "Subhadip"
+title: "Subhadip Bhattacharjee"
 role: "Member"
 group: "Communication Team"
-image: "/images/team/subhadip.png"
+image: "/images/team/Subhadip Bhattacharjee.png"
 email: ""
 linkedin: ""
 instagram: "https://instagram.com/scoobydoo_m87"

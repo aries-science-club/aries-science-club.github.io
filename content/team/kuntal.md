@@ -1,5 +1,5 @@
 ---
-title: "Dr. Kuntal Mishra"
+title: "Dr. Kuntal Misra"
 role: "Coordinator"
 group: "Coordinator"
 
