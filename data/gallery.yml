@@ -128,6 +128,98 @@
   event: "National Technology Day"
   tags: ["technology", "2026", "May"]
 
+# --- World Environment Day 2026 ---
+- image: "/images/envday/environment day_landscape.jpg"
+  title: "World Environment Day Poster 2026"
+  year: "2026"
+  month: "June"
+  event: "World Environment Day"
+  tags: ["environment", "2026", "June"]
+
+- image: "/images/envday/e1.jpg"
+  title: "World Environment Day Audience Interaction"
+  year: "2026"
+  month: "June"
+  event: "World Environment Day"
+  tags: ["environment", "2026", "June"]
+
+- image: "/images/envday/e2.jpg"
+  title: "Science Club Team"
+  year: "2026"
+  month: "June"
+  event: "World Environment Day"
+  tags: ["environment", "2026", "June"]
+
+- image: "/images/envday/e3.jpg"
+  title: "World Environment Day Honorary for Chief Guest"
+  year: "2026"
+  month: "June"
+  event: "World Environment Day"
+  tags: ["environment", "2026", "June"]
+
+- image: "/images/envday/e4.jpg"
+  title: "World Environment Day Activities"
+  year: "2026"
+  month: "June"
+  event: "World Environment Day"
+  tags: ["environment", "2026", "June"]
+
+- image: "/images/envday/e5.jpg"
+  title: "World Environment Day Honorary for Chief Guest"
+  year: "2026"
+  month: "June"
+  event: "World Environment Day"
+  tags: ["environment", "2026", "June"]
+
+- image: "/images/envday/e6.jpg"
+  title: "World Environment Day Cleaning Drive"
+  year: "2026"
+  month: "June"
+  event: "World Environment Day"
+  tags: ["environment", "2026", "June"]
+
+- image: "/images/envday/e7.jpg"
+  title: "World Environment Day Cleaning Drive"
+  year: "2026"
+  month: "June"
+  event: "World Environment Day"
+  tags: ["environment", "2026", "June"]
+
+- image: "/images/envday/e8.jpg"
+  title: "World Environment Day Cleaning Drive"
+  year: "2026"
+  month: "June"
+  event: "World Environment Day"
+  tags: ["environment", "2026", "June"]
+
+- image: "/images/envday/e9.jpg"
+  title: "World Environment Day Cleaning Drive"
+  year: "2026"
+  month: "June"
+  event: "World Environment Day"
+  tags: ["environment", "2026", "June"]
+
+- image: "/images/envday/e10.jpg"
+  title: "World Environment Day Plantation Drive"
+  year: "2026"
+  month: "June"
+  event: "World Environment Day"
+  tags: ["environment", "2026", "June"]
+
+- image: "/images/envday/e11.jpg"
+  title: "World Environment Day Plantation Drive"
+  year: "2026"
+  month: "June"
+  event: "World Environment Day"
+  tags: ["environment", "2026", "June"]
+
+- image: "/images/envday/e12.jpg"
+  title: "World Environment Day Plantation Drive"
+  year: "2026"
+  month: "June"
+  event: "World Environment Day"
+  tags: ["environment", "2026", "June"]
+
 # --- Team Headshots (April 2026) ---
 
 # To Implement 
