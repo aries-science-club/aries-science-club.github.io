@@ -67,7 +67,7 @@
                 {{/* Auto-hide events once their date has passed (compares at build time) */}}
                 {{ $today := now.Format "2006-01-02" }}
                 {{ $upcomingEvents := slice }}
-                {{ range (where site.RegularPages "Section" "events") }}
+                {{ range (sort (where site.RegularPages "Section" "events") "Date" "asc") }}
                     {{ if not .Params.hide_from_upcoming }}
                         {{ $eventDate := .Date.Format "2006-01-02" }}
                         {{ if ge $eventDate $today }}

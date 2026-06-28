@@ -222,8 +222,4 @@
 
 # --- Team Headshots (April 2026) ---
 
-# To Implement 
-# I want different section for each year and want to be organised them by year - month - titlle ( like breadcrumb navigation ). 
-# but i want your suggestion for that to implemnt i.e. either by creating new pages for each year and each month ( which will break the search and tag feature)
-# or by using tags but to change the layout of the page to show the tags as nested structure like year > month > title.
 
