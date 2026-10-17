@@ -1,10 +1,10 @@
 ---
 title: "World Enviorment Day"
 date: 2026-06-05
-cover_image: "/images/enviormentday/environment day_landscape.jpg"
+cover_image: "/images/envday/environment day_landscape.jpg"
 cover_image_title: "World Enviorment Day"
 images: 
-  - "/images/enviormentday/environment day_landscape.jpg"
+  - "/images/envday/environment day_landscape.jpg"
 summary: "Celebrating World Environment Day."
 
 # --- NEW REGISTRATION VARIABLES ---
