@@ -52,7 +52,7 @@
             <div style="width: 100%;">
                 <div class="gallery-header">
                     <h2>{{ .Title }}</h2>
-                    <p>{{ .Date.Format "January 2, 2006" }}</p>
+                    <p>{{ .Params.display_date | default (cond .Date.IsZero "" (.Date.Format "January 2, 2006")) }}</p>
                 </div>
                 <div style="color: #cbd5e1; line-height: 1.8;">
                     {{ .Content }} 

@@ -70,7 +70,7 @@
                 {{ range (sort (where site.RegularPages "Section" "events") "Date" "asc") }}
                     {{ if not .Params.hide_from_upcoming }}
                         {{ $eventDate := .Date.Format "2006-01-02" }}
-                        {{ if ge $eventDate $today }}
+                        {{ if or (ge $eventDate $today) .Date.IsZero }}
                             {{ $upcomingEvents = $upcomingEvents | append . }}
                         {{ end }}
                     {{ end }}
@@ -89,7 +89,7 @@
                         
                         <div style="padding: 20px;">
                             <h3 style="font-size: 1.2rem; margin-bottom: 8px; color: white;">{{ .Title }}</h3>
-                            <p style="color: var(--primary); font-size: 0.9rem; font-weight: bold; margin-bottom: 10px;">{{ .Date.Format "02 January 2006" }}</p>
+                            <p style="color: var(--primary); font-size: 0.9rem; font-weight: bold; margin-bottom: 10px;">{{ .Params.display_date | default (cond .Date.IsZero "Date TBA" (.Date.Format "02 January 2006")) }}</p>
                             
                             <p style="color: #94a3b8; font-size: 0.95rem; line-height: 1.5;">
                                 {{ .Summary | truncate 100 }}
@@ -138,6 +138,7 @@
         // Hugo generates this array perfectly before the page even loads!
         const clubEvents = [
             {{ range (where site.RegularPages "Section" "in" (slice "events" "archive")) }}
+            {{ if not (or .Params.hide_from_calendar .Date.IsZero) }}
             {
                 title: {{ .Title | jsonify }},
                 date: "{{ .Date.Format `2006-01-02` }}",
@@ -145,6 +146,7 @@
                 section: "{{ .Section }}",
                 summary: {{ .Summary | plainify | truncate 100 | jsonify }}
             },
+            {{ end }}
             {{ end }}
         ];
     </script>
@@ -179,7 +181,7 @@
                     <p class="excerpt">{{ .Params.summary | truncate 120 }}</p>
                     <p class="meta">
                         By {{ .Params.author | default "ARIES Science Club" }},
-                        on {{ .Date.Format "02 Jan 2006" }}
+                        on {{ .Params.display_date | default (cond .Date.IsZero "Past Event" (.Date.Format "02 Jan 2006")) }}
                     </p>
                 </div>
             </a>

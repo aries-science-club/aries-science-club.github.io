@@ -40,7 +40,7 @@
 
         <h1 style="font-size: 3rem; margin-bottom: 5px;">{{ .Title }}</h1>
         <h3 style="color: var(--primary); margin-top: 0; margin-bottom: 30px;">
-            📅 {{ .Date.Format "Monday, January 2, 2006" }}
+            📅 {{ .Params.display_date | default (cond .Date.IsZero "Date to be announced" (.Date.Format "Monday, January 2, 2006")) }}
         </h3>
 
         {{ if .Params.registration_link }}
